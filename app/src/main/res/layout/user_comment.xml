@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".binhluanFragment"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userAvata"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/a2"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trung giấu tên"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:id="@+id/userComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kiếm sĩ"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+
+                    />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

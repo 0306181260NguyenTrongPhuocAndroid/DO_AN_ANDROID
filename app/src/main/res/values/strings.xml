@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">Cultureplex CGV</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="lichchieu_fragment">Lịch chiếu </string>
+    <string name="thongtin_fragment">Thông tin </string>
+    <string name="binluan_fragment">Bình luận </string>
+    <string name="dugGoiAnhLaBo">Chàng trai Got mồ côi mẹ, bố anh gà trống nuôi con. Vì một tai nạn bất ngờ, Got bị đưa về quá khứ. Got gặp bố anh - Prem ở độ tuổi thanh niên và đang làm đầu lĩnh một nhóm trai trẻ vô công rỗi nghề. Got quyết định gia nhập vào nhóm để tìm hiểu thêm về bố và gặp lại người mẹ đã qua đời. Liệu anh có thay đổi được quá khứ và cứu sống mẹ mình? Xem thêm tại: https://www.galaxycine.vn/dat-ve/my-god-father Xem thêm tại: https://www.galaxycine.vn/dat-ve/my-god-father</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

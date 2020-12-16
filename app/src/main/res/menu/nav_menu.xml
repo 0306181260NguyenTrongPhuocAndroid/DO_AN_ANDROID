@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuCaNhan"
+        android:title="Thông tin cá nhân">
+    </item>
+    <item
+        android:id="@+id/menuDK_DN"
+        android:title="Đăng ký / Đăng nhập">
+    </item>
+    <item
+        android:id="@+id/menuDanhSach"
+        android:title="Danh sách phim">
+    </item>
+</menu>

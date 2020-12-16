@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="wrap_content"
+        android:layout_height="275dp"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/poster_phim" />
+
+    <ScrollView
+        android:id="@+id/KhungThongTinPhimThanhToan"
+        android:layout_width="match_parent"
+        android:layout_height="271dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="347dp">
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayOutInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/TV1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="TIỆC TRĂNG MÁU"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TV2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="C18 - PHIM CẤM KHÁN GIẢ DƯỚI 18 TUỔI"
+                android:textColor="#BC61CC"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TV3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="10:00 ~ 12:00"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TV4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="26/10/2020"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TV5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="CGV Cinema Hùng Vương"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TV6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Seat: D4,D5"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TV7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Tổng cộng: 150000"
+                android:textColor="#EC0A0A"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnThanhToan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:text="Thanh toán"
+                app:backgroundTint="#ad2b33" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

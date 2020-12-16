@@ -1,0 +1,9 @@
+{
+  "tttk":  {"id": 1,"Hoten": "PhamVanDuong","SDT": "0416119449","Email": "phamvanduong@gmail.com","NgaySinh": "22/1/1533","Tinh": "LongAn","Huyen": "CanDuoc","Xa": "PhuocDong"},
+  "ttgd":
+  [
+    {"TenVe": "Ve phim 1","Giave": 100000},
+    {"TenVe": "Ve phim 2","Giave": 200000},
+    {"TenVe": "Ve phim 3","Giave": 300000}
+  ]
+}

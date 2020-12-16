@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtDanhSach"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDFD"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thông Tin Giao Dịch"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txtTongchitieu"
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:gravity="start"
+                android:text="     Tổng Chi Tiêu Trong Năm"
+                android:textColor="#3F51B5"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:ems="10"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_marginLeft="14dp"
+                android:text="125000000"
+                android:inputType="textPersonName" />
+
+
+            <TextView
+                android:id="@+id/txtLichSuGiaoDich"
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:gravity="start"
+                android:text="     Tổng chi tiêu trong Tháng"
+                android:textColor="#3F51B5"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:ems="10"
+                android:enabled="false"
+                android:focusable="false"
+                android:inputType="textPersonName"
+                android:layout_marginLeft="14dp"
+                android:text="25000000"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:gravity="start"
+                android:text="     Danh Sách Các Đơn"
+                android:textColor="#3F51B5"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/listviewlichsu"
+                android:layout_width="match_parent"
+                android:layout_height="398dp"
+                android:layout_marginLeft="10dp"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
