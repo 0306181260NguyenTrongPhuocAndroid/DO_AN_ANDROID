@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivityThanhToan extends AppCompatActivity {
-
-    private Button btnThanhToan;
+public class ChonNganHangActivity extends AppCompatActivity {
+    private Button btnXacNhan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_thanh_toan);
+        setContentView(R.layout.activity_chon_ngan_hang);
 
-        btnThanhToan = (Button)findViewById(R.id.btnThanhToan);
-        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+        btnXacNhan = (Button)findViewById(R.id.btnXacNhan);
+        btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivityThanhToan.this,ChonNganHangActivity.class);
+                Intent intent =new Intent(ChonNganHangActivity.this,DangNhapSTKNganHangActivity.class);
                 startActivity(intent);
+
             }
         });
     }
