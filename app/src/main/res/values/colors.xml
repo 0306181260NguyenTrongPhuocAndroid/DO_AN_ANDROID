@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="selected_tab">#ffffff</color>
     <color name="nonselected_tab">#FF1430</color>
+    <color name="black">#000000</color>
 </resources>

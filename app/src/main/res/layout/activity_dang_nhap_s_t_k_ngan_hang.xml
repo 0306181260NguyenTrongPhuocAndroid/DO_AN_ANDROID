@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DangNhapSTKNganHangActivity">
+
+    <EditText
+        android:id="@+id/txtTenDangNhap"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Tên đăng nhập"
+        android:inputType="textPersonName"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/txtMatKhau"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btnDangNhap"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:width="350dp"
+        android:padding="10dp"
+        android:text="ĐĂNG NHẬP"
+        android:layout_gravity="center_horizontal"
+        app:backgroundTint="#ad2b33"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--- Hoặc ---"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btnTroLai"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:width="350dp"
+        android:padding="10dp"
+        android:text="TRỞ LẠI"
+        android:layout_gravity="center_horizontal"
+        app:backgroundTint="#ad2b33" />
+
+</LinearLayout>
