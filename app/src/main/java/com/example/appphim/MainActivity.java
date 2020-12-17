@@ -177,9 +177,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             startActivity(intent);
         }
         if (item.getItemId() == R.id.menuCaNhan) {
-            // Toast.makeText(this, "Btn is clicked.", Toast.LENGTH_SHORT).show();
-            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new trangTabDN_DK()).commit();
             Intent intent = new Intent(getApplicationContext(),MainCaNhan.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.menuDanhSach) {
+            Intent intent = new Intent(getApplicationContext(),Mainfilter.class);
             startActivity(intent);
         }
         return false;
