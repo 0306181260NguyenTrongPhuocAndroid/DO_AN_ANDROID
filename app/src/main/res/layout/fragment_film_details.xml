@@ -59,15 +59,15 @@
                         android:textColor="#000000"
                         android:textSize="@dimen/DF_TextSize"
                         android:paddingLeft="5dp" />
+
                     <TextView
                         android:id="@+id/Diem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingStart="5dp"
-                        android:text="điểm: "
+                        android:paddingLeft="5dp"
                         android:textColor="#000000"
-                        android:textSize="@dimen/DF_TextSize"
-                        android:paddingLeft="5dp" />
+                        android:textSize="@dimen/DF_TextSize" />
                 </LinearLayout>
 
                     <TextView
@@ -94,7 +94,8 @@
                         android:id="@+id/ratingBar_yours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:stepSize="1">
+                        android:background="#FFFDFD"
+                        android:stepSize="0.5">
 
                     </RatingBar>
 

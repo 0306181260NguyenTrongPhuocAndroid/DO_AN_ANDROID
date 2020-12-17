@@ -2,11 +2,19 @@ package com.example.appphim;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +27,10 @@ public class FilmDetails extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private RatingBar ratingBar;
+    private TextView txtDiem;
+    private Button btnDanhGia;
+    private List<Float> allRatings = new ArrayList<Float>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -44,6 +55,34 @@ public class FilmDetails extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ratingBar = getView().findViewById(R.id.ratingBar_yours);
+        txtDiem = (TextView) getView().findViewById(R.id.Diem);
+        btnDanhGia = getView().findViewById(R.id.btnDanhGia);
+        btnDanhGia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float rating = ratingBar.getRating();
+                if(rating==0)
+                {
+                    txtDiem.setText("0");
+                }
+                         allRatings.add(rating+rating);
+                         int ratingCount = allRatings.size();
+                         float ratingSum = 0f;
+                         for(Float r: allRatings)  {
+                             ratingSum += r;
+                         }
+                         float TB = ratingSum / ratingCount;
+                         float LT = ((float)Math.ceil(TB * 100) / 100);
+                         txtDiem.setText("" +LT);
+            }
+
+        });
     }
 
     @Override
