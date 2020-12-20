@@ -7,13 +7,23 @@
     android:orientation="vertical"
     tools:context=".DangNhapSTKNganHangActivity">
 
+    <TextView
+        android:id="@+id/bankDuocChon"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
-        android:id="@+id/txtTenDangNhap"
+        android:id="@+id/txtSTK"
         android:layout_width="247dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="Tên đăng nhập"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:layout_gravity="center_horizontal"
         android:padding="10dp" />
 
