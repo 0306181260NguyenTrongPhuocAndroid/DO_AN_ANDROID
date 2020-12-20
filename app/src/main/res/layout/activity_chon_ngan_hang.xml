@@ -52,64 +52,81 @@
                 android:paddingLeft="20dp">
 
                 <RadioButton
+                    android:id="@+id/rad_SCB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="SCB"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_Agribank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Agribank"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_Viettinbank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Viettinbank"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_ACB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="ACB"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_Vietcombank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Vietcombank"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_BIDV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="BIDV"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_Oceanbank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Ocean Bank"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_TPBank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="TPBank"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/rad_SHB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="SHB"></RadioButton>
             </RadioGroup>
 
+            <TextView
+                android:id="@+id/mgs"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/design_default_color_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/btnXacNhan"
                 android:layout_width="375dp"
-                android:layout_height="70dp"
+                android:layout_height="46dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="15dp"
                 android:width="10dp"
