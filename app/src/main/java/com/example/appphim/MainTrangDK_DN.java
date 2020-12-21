@@ -108,6 +108,7 @@ public class MainTrangDK_DN extends AppCompatActivity {
 
         if (Email.getText().toString().equals(tenTK) && Pass.getText().toString().equals(tenMK)) {
             Toast.makeText(getApplicationContext(), "Thành công", Toast.LENGTH_LONG).show();
+
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         } else {

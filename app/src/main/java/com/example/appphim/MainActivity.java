@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         ImageView imageview = new ImageView(this);
         imageview.setBackgroundResource(img);
         flipper.addView(imageview);
-        flipper.setFlipInterval(2700);
+        flipper.setFlipInterval(5000);
         flipper.setAutoStart(true);
 
         flipper.setInAnimation(this, android.R.anim.slide_in_left);

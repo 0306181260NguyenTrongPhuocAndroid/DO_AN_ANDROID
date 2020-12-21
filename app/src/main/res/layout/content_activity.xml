@@ -78,7 +78,7 @@
 
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:text="đang chiếu"
+                    android:text=""
                     android:textColor="#ffffff"
                     android:layout_marginRight="1dp"
                     ></Button>
@@ -89,7 +89,7 @@
                     android:layout_height="3dp"
                     android:layout_weight="1"
                     android:background="#FF1430"
-                    android:text="sắp chiếu"
+                    android:text=""
                     android:textColor="#ffffff"
                     android:layout_marginLeft="1dp"></Button>
 

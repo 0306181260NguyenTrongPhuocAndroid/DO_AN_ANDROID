@@ -42,13 +42,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="--- Hoặc ---"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp"
+        android:text="--- Hoặc ---"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnTroLai"
