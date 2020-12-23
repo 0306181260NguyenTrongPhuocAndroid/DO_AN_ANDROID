@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainCaNhan">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:paddingTop="0dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="#C7E9ED"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="375dp"
+                android:layout_height="182dp"
+                app:srcCompat="@drawable/pngtree_user_login_or_authenticate_icon_on_gray_background_flat_icon_ve_png_image_1742031" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/txtHoTen"
+                android:layout_width="407dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:text="     Họ Tên"
+                android:textColor="#222020"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editpfHoTen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="14dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+
+                android:textColorHighlight="#E91E63"
+                android:textColorLink="#B62121" />
+
+            <TextView
+                android:id="@+id/txtSDT"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+
+                android:text="     Số Điện Thoại"
+                android:textColor="#201E1E"
+                android:textColorHighlight="#CC3030"
+                android:textColorHint="#D84C4C"
+                android:textColorLink="#E91E63"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editpfSDT"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+
+                android:ems="10"
+
+                android:inputType="phone"
+                android:textColorHint="#E83DD8"
+                android:textColorLink="#EA3838" />
+
+            <TextView
+                android:id="@+id/txtNgaySinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="Ngày Sinh"
+                android:textColor="#200303"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editpfNgaySinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:ems="10"
+                android:hint="Chọn ngày"
+                android:inputType="textPersonName"
+
+                android:text="22/10/2000" />
+
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:text="     Email"
+                android:textColor="#151414"
+
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="375dp"
+                android:layout_height="62dp"
+
+
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="-5dp"
+                android:background="#BDEBF1"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:ems="10"
+
+                android:hint="  Nhập Email"
+                android:inputType="none"
+                android:text="phamvanduong@gmail.com"
+                android:textColorHint="#151415"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtGioiTinh"
+                android:layout_width="411dp"
+                android:layout_height="39dp"
+
+                android:text="     Giới Tính"
+                android:textColor="#222020"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radNam"
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:text="     Nam"
+                    android:textColor="#1B1919" />
+
+                <RadioButton
+                    android:id="@+id/radNu"
+                    android:layout_width="198dp"
+                    android:layout_height="wrap_content"
+                    android:text="     Nữ"
+                    android:textColor="#171616" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txtcontent"
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/txtinh"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
+                android:text="TP/Tỉnh"
+                android:textColor="#121111"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnertinh"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="14dp" />
+
+
+            <TextView
+                android:id="@+id/txthuyen"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
+                android:text="Huyện/Quận"
+                android:textColor="#131313"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerhuyen"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginLeft="14dp" />
+
+
+            <TextView
+                android:id="@+id/txtxa"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
+                android:text="Xã/Phường"
+
+                android:textColor="#201E1E"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerxa"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="14dp" />
+
+            <Button
+                android:id="@+id/btnsave"
+                android:layout_width="285dp"
+                android:layout_height="62dp"
+                android:background="#E11212"
+                android:text="Lưu thông tin"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
