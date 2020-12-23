@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
     private EditText truyenTK;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

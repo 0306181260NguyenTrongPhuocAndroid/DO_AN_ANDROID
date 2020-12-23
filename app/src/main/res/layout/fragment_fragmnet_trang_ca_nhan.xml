@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#C7E9ED"
+    android:background="#ECBBCA"
     tools:context=".MainCaNhan">
 
     <ScrollView
@@ -99,7 +99,7 @@
                 android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="#BDEBF1"
+                android:background="#ECBBCA"
                 android:drawableStart="@drawable/ic_baseline_email_24"
                 android:ems="10"
                 android:hint="  Nhập Email"

@@ -102,6 +102,7 @@
                 android:background="#353535"
                 android:paddingStart="78dp"
                 android:paddingEnd="78dp"
+            
                 ></androidx.viewpager2.widget.ViewPager2>
 
 
