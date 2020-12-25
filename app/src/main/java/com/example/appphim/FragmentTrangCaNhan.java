@@ -131,6 +131,12 @@ public class FragmentTrangCaNhan extends Fragment {
         editDate=(EditText) v.findViewById(R.id.editNgaySinh);
         btnupdate=(Button)v.findViewById(R.id.capnhat);
         editEmail=(EditText)v.findViewById(R.id.editEmail);
+        editDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chonngay();
+            }
+        });
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,14 +148,7 @@ public class FragmentTrangCaNhan extends Fragment {
                 startActivity(intent);
             }
         });
-        editDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chonngay();
 
-
-            }
-        });
         InputStream is=getActivity().getResources().openRawResource(R.raw.thongtin);
         BufferedReader br=new BufferedReader(new InputStreamReader(is));
         StringBuilder sb= new StringBuilder();

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ECBBCA"
-    tools:context=".MainCaNhan">
+    >
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -206,7 +206,8 @@
                 android:background="#E11212"
                 android:text="Cập nhật"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <Button
                 android:id="@+id/doimatkhau"
