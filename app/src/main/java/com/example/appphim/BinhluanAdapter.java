@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appphim.commentUser;
+
 import java.util.List;
 
 public class BinhluanAdapter extends RecyclerView.Adapter<BinhluanAdapter.CommentViewHoder>{

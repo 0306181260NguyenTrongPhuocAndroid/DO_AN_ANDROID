@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.appphim.chitiet_phim;
+
 import java.util.ArrayList;
 import java.util.List;
 

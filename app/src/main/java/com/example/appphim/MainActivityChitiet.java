@@ -63,6 +63,10 @@ public class MainActivityChitiet extends AppCompatActivity {
         this.textViewAverageAllRating.setText("" + averageRating);
 
     }
+
+    public void ChonSuat(View view) {
+
+    }
     /*private void initToobar(){
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

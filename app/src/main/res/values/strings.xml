@@ -10,4 +10,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dayofweek8">Chủ nhật</string>
+    <string name="dayofweek7">Thứ 7</string>
+    <string name="dayofweek3">Thứ 3</string>
+    <string name="dayofweek5">Thứ 5</string>
+    <string name="dayofweek6">Thứ 6</string>
+    <string name="dayofweek4">Thứ tư</string>
+    <string name="dayofweek2">Thứ 2</string>
 </resources>
