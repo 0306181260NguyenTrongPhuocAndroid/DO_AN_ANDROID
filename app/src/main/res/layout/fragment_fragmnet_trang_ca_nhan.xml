@@ -137,6 +137,7 @@
                     android:layout_width="193dp"
                     android:layout_height="wrap_content"
                     android:text="  Nam"
+                    android:checked="true"
                     android:textColor="#1B1919" />
 
                 <RadioButton
@@ -200,7 +201,7 @@
                />
 
             <Button
-                android:id="@+id/capnhat"
+                android:id="@+id/update"
                 android:layout_width="285dp"
                 android:layout_height="62dp"
                 android:background="#E11212"

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
-
+    public int id;
     ViewFlipper flipper;
     private ViewPager2 viewPager2;
     Button btndangchieu;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
     Button selectDangChieu;
     Button selectSapChieu;
-
+    final List<dangchieu_AT> dangchieu_ats = new ArrayList<>();
     private EditText truyenTK;
 
     @Override
@@ -64,18 +64,18 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
 
         final List<dangchieu_AT> dangchieu_ats = new ArrayList<>();
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.matbet, "MẮT BIẾC", "Tình Cảm", R.drawable.ic_baseline_star_24, "8.9"));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.rom, "RÒM", "Tâm Lý", R.drawable.ic_baseline_star_24, "7.9"));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangmau, "TIỆC TRĂNG MÁU", "Tâm Lý, Tình Cảm, Hài", R.drawable.ic_baseline_star_24, "7.7"));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.venom, "VENOM", "Hành Động, Viễn Tưởng", R.drawable.ic_baseline_star_24, "8.0"));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangquynh, "TRẠNG QUỲNH", "Cổ Tích, Hài", R.drawable.ic_baseline_star_24, "8.5"));
+        dangchieu_ats.add(new dangchieu_AT(R.drawable.matbet, "MẮT BIẾC", "Tình Cảm", R.drawable.ic_baseline_star_24, "8.9",1));
+        dangchieu_ats.add(new dangchieu_AT(R.drawable.rom, "RÒM", "Tâm Lý", R.drawable.ic_baseline_star_24, "7.9",2));
+        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangmau, "TIỆC TRĂNG MÁU", "Tâm Lý, Tình Cảm, Hài", R.drawable.ic_baseline_star_24, "7.7",3));
+        dangchieu_ats.add(new dangchieu_AT(R.drawable.venom, "VENOM", "Hành Động, Viễn Tưởng", R.drawable.ic_baseline_star_24, "8.0",4));
+        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangquynh, "TRẠNG QUỲNH", "Cổ Tích, Hài", R.drawable.ic_baseline_star_24, "8.5",5));
 
         final List<dangchieu_AT> dangchieu_ats2 = new ArrayList<>();
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chimuoiba, "CHỊ MƯỜI BA", "Hài, Hành Động,", R.drawable.ic_baseline_star_24, "8.0"));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chongngta, "CHỒNG NGƯỜI TA", "Tâm Lý", R.drawable.ic_baseline_star_24, "6.8"));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.kesanmo, "KẺ SĂN MỘ", "Hành Động, Phiêu Lưu", R.drawable.ic_baseline_star_24, "7.0"));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.traitimquaivat, "TRÁI TIM QUÁI VẬT", "Kinh Dị", R.drawable.ic_baseline_star_24, "9.3"));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.wonderwoman, "WONDER WOMAN", "Hành Động", R.drawable.ic_baseline_star_24, "8.9"));
+        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chimuoiba, "CHỊ MƯỜI BA", "Hài, Hành Động,", R.drawable.ic_baseline_star_24, "8.0",6));
+        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chongngta, "CHỒNG NGƯỜI TA", "Tâm Lý", R.drawable.ic_baseline_star_24, "6.8",7));
+        dangchieu_ats2.add(new dangchieu_AT(R.drawable.kesanmo, "KẺ SĂN MỘ", "Hành Động, Phiêu Lưu", R.drawable.ic_baseline_star_24, "7.0",8));
+        dangchieu_ats2.add(new dangchieu_AT(R.drawable.traitimquaivat, "TRÁI TIM QUÁI VẬT", "Kinh Dị", R.drawable.ic_baseline_star_24, "9.3",9));
+        dangchieu_ats2.add(new dangchieu_AT(R.drawable.wonderwoman, "WONDER WOMAN", "Hành Động", R.drawable.ic_baseline_star_24, "8.9",10));
 
         initslider1(dangchieu_ats);
         btndangchieu = (Button) findViewById(R.id.dangchieu);
@@ -145,7 +145,9 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
     public void initslider1(List<dangchieu_AT> dangchieus) {
         viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
-        viewPager2.setAdapter(new Adapterdangchieu(dangchieus, viewPager2));
+            Adapterdangchieu adapterdangchieu =new Adapterdangchieu(dangchieus, viewPager2);
+            adapterdangchieu.setContext(getApplicationContext());
+        viewPager2.setAdapter(adapterdangchieu);
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(5);
@@ -185,6 +187,17 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     }
 
 
+    //public void chitietphim(View view) {
+       //Intent intent= new Intent(this,MainActivityChitiet.class);
+       // startActivity(intent);
+      //  ImageView imageView=(ImageView)view;
 
-
+        //for(int i = 0; i<dangchieu_ats.size(); i++)
+      //  {
+         //   if(getDrawable(dangchieu_ats.get(i).get(i).getResource()).getConstantState().equals(imageView.getDrawable().getConstantState()));
+          //  id= dangchieu_ats.get(i).getResource();
+    //   }
+      //  intent.putExtra("id",id);
+       //startActivity(intent);
+  // }
 }

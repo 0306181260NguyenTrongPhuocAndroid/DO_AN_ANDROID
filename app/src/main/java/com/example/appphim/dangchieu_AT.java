@@ -6,13 +6,25 @@ public class dangchieu_AT {
     private String desc;
     private int imageStar;
     private String point;
+    private int Id;
 
-    public dangchieu_AT(int image, String title, String desc, int imageStar, String point) {
+
+    public dangchieu_AT(int image, String title, String desc, int imageStar, String point,int id) {
         this.image = image;
         this.title = title;
         this.desc = desc;
+
         this.imageStar = imageStar;
         this.point = point;
+        this.Id=id;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     public int getImage() {

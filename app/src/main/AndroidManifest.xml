@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DangNhapSTKNganHangActivity">
+        <activity android:name=".Activity_Chonghe">
 
         </activity>
+        <activity android:name=".EditProfile" />
+        <activity android:name=".DangNhapSTKNganHangActivity" />
         <activity android:name=".ChonNganHangActivity" />
         <activity android:name=".Mainfilter" />
-        <activity android:name=".MainActivityThanhToan">
-
-        </activity>
+        <activity android:name=".MainActivityThanhToan" />
         <activity android:name=".MainActivityChitiet" />
         <activity android:name=".MainCaNhan" />
         <activity android:name=".MainTrangDK_DN" />

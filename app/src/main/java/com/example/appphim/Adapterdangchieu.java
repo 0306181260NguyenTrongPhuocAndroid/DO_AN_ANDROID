@@ -1,10 +1,13 @@
 package com.example.appphim;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,10 +20,19 @@ import java.util.List;
 public  class Adapterdangchieu extends RecyclerView.Adapter<Adapterdangchieu.SliderViewHolder> {
     private List<dangchieu_AT> dangchieu_ats;
     private ViewPager2 viewPager2;
+    private Context context;
 
     Adapterdangchieu(List<dangchieu_AT> dangchieu_ats, ViewPager2 viewPager2) {
         this.dangchieu_ats = dangchieu_ats;
         this.viewPager2 = viewPager2;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     @NonNull
@@ -30,12 +42,21 @@ public  class Adapterdangchieu extends RecyclerView.Adapter<Adapterdangchieu.Sli
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SliderViewHolder holder, final int position) {
         holder.setImage(dangchieu_ats.get(position));
         holder.setTitle(dangchieu_ats.get(position));
         holder.setDesc(dangchieu_ats.get(position));
         holder.setImageviewStar(dangchieu_ats.get(position));
         holder.setPoint(dangchieu_ats.get(position));
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context,MainActivityChitiet.class);
+                intent.putExtra("id",position);
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -44,7 +65,7 @@ public  class Adapterdangchieu extends RecyclerView.Adapter<Adapterdangchieu.Sli
     }
 
     static class SliderViewHolder extends RecyclerView.ViewHolder {
-        private RoundedImageView imageView;
+        public RoundedImageView imageView;
         private TextView title,desc,point;
         private ImageView imageviewStar;
 

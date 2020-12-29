@@ -12,18 +12,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,7 +23,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.ref.ReferenceQueue;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -98,7 +89,7 @@ public class FragmentTrangCaNhan extends Fragment {
     EditText editHoten;
     EditText editSDT;
     EditText editEmail;
-    Button btnupdate;
+    Button btnupdate1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -129,7 +120,7 @@ public class FragmentTrangCaNhan extends Fragment {
 
         editSDT=(EditText)v.findViewById(R.id.editSDT);
         editDate=(EditText) v.findViewById(R.id.editNgaySinh);
-        btnupdate=(Button)v.findViewById(R.id.capnhat);
+        btnupdate1=(Button)v.findViewById(R.id.update);
         editEmail=(EditText)v.findViewById(R.id.editEmail);
         editDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,10 +128,10 @@ public class FragmentTrangCaNhan extends Fragment {
                 chonngay();
             }
         });
-        btnupdate.setOnClickListener(new View.OnClickListener() {
+        btnupdate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getContext(),EditProfile.class);
+                Intent intent= new Intent(getContext(), EditProfile.class);
                 intent.putExtra("HoTen",editHoten.getText().toString());
                 intent.putExtra("Email",editEmail.getText().toString());
                 intent.putExtra("SDT",editSDT.getText().toString());

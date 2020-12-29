@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
     >
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -75,7 +76,6 @@
                     android:id="@+id/btn_dc"
                     android:layout_width="wrap_content"
                     android:layout_height="3dp"
-
                     android:layout_weight="1"
                     android:background="#FFFFFF"
                     android:text=""
@@ -102,8 +102,10 @@
                 android:background="#353535"
                 android:paddingStart="78dp"
                 android:paddingEnd="78dp"
-            
-                ></androidx.viewpager2.widget.ViewPager2>
+                android:onClick="chitietphim"
+                >
+
+            </androidx.viewpager2.widget.ViewPager2>
 
 
             <FrameLayout

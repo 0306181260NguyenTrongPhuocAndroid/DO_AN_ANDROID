@@ -1,41 +1,55 @@
 package com.example.appphim;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class EditProfile extends AppCompatActivity {
-     public  static  final String TAG="TAG";
-     EditText pfHoTen,pfEmail,pfSDT,pfNgaySinh;
 
-     ImageView imageView;
-     Button saveBtn;
+    public  static  final String TAG="TAG";
+    EditText pfHoTen,pfEmail,pfSDT,pfNgaySinh;
+
+    ImageView imageView;
+    Button saveBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         Intent data=getIntent();
 
-
+        String [] values =
+                {"TPHCM","Long An","Tien Giang","Binh Phuoc","Binh Duong","Vung Tau","Dak-Lak","Ca Mau",};
+        Spinner spinner = (Spinner) findViewById(R.id.spinnertinh);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, values);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        String [] value =
+                {"TPHCM","Long An","Tien Giang","Binh Phuoc","Binh Duong","Hà Nội","Bình Thuận","Vũng Tàu",};
+        Spinner spinnerhuyen = (Spinner) findViewById(R.id.spinnerhuyen);
+        ArrayAdapter<String> adapterhuyen = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, value);
+        adapterhuyen.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinnerhuyen.setAdapter(adapterhuyen);
+        String [] valuexa =
+                {"TPHCM","Long An","Tien Giang","Binh Phuoc","Binh Duong","Phước Đông","Cần Đước","Phước Tuy",};
+        Spinner spinnerxa = (Spinner) findViewById(R.id.spinnerxa);
+        ArrayAdapter<String> adapterxa = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, valuexa);
+        adapterxa.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinnerxa.setAdapter(adapterxa);
         String SDT=data.getStringExtra("SDT");
         String NgaySinh=data.getStringExtra("NgaySinh");
         String HoTen=data.getStringExtra("HoTen");
         String Email=data.getStringExtra("Email");
-       // firebaseAuth=FirebaseAuth.getInstance();
-      //  fStore=FirebaseFirestore.getInstance();
+        // firebaseAuth=FirebaseAuth.getInstance();
+        //  fStore=FirebaseFirestore.getInstance();
 //      user=firebaseAuth.getCurrentUser();
         pfHoTen=findViewById(R.id.editpfHoTen);
         pfEmail=findViewById(R.id.editEmail);
