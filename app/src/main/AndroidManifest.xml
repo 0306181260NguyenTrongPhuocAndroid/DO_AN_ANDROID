@@ -19,15 +19,17 @@
         <activity android:name=".MainActivityThanhToan" />
         <activity android:name=".MainActivityChitiet" />
         <activity android:name=".MainCaNhan" />
-        <activity android:name=".MainTrangDK_DN" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainTrangDK_DN">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 
