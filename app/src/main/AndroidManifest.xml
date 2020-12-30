@@ -15,11 +15,22 @@
         <activity android:name=".EditProfile" />
         <activity android:name=".DangNhapSTKNganHangActivity" />
         <activity android:name=".ChonNganHangActivity" />
-        <activity android:name=".Mainfilter" />
-        <activity android:name=".MainActivityThanhToan" />
+        <activity android:name=".Mainfilter">
+
+        </activity>
+
+        <activity android:name=".MainActivityThanhToan">
+
+        </activity>
         <activity android:name=".MainActivityChitiet" />
         <activity android:name=".MainCaNhan" />
         <activity android:name=".MainTrangDK_DN">
+
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
