@@ -38,6 +38,12 @@
             android:paddingBottom="16dp"
             android:gravity="center">
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="209dp"
+                android:layout_height="144dp"
+                app:srcCompat="@drawable/pngtree_vector_add_user_icon_png_image_3773557" />
+
 
             <EditText
                 android:id="@+id/txt_hoTen"
