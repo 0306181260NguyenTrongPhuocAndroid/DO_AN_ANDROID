@@ -1,54 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#ECBBCA"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile">
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:paddingTop="0dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
+            android:background="#C7E9ED"
             android:gravity="center"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="375dp"
+                android:layout_height="182dp"
+                app:srcCompat="@drawable/pngtree_user_login_or_authenticate_icon_on_gray_background_flat_icon_ve_png_image_1742031" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+            </TextView>
 
 
             <TextView
                 android:id="@+id/txtHoTen"
-                android:layout_width="match_parent"
+                android:layout_width="407dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:text="Họ Tên"
+                android:text="     Họ Tên"
                 android:textColor="#222020"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editHoTen"
+                android:id="@+id/editpfHoTen"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="14dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+
                 android:textColorHighlight="#E91E63"
                 android:textColorLink="#B62121" />
 
             <TextView
                 android:id="@+id/txtSDT"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="39dp"
                 android:layout_gravity="center"
-                android:text="Số Điện Thoại"
+
+                android:text="     Số Điện Thoại"
                 android:textColor="#201E1E"
                 android:textColorHighlight="#CC3030"
                 android:textColorHint="#D84C4C"
@@ -57,51 +73,65 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editSDT"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:id="@+id/editpfSDT"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+
                 android:ems="10"
+
                 android:inputType="phone"
                 android:textColorHint="#E83DD8"
                 android:textColorLink="#EA3838" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/txtNgaySinh"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
                 android:text="Ngày Sinh"
                 android:textColor="#200303"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editNgaySinh"
+                android:id="@+id/editpfNgaySinh"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="5dp"
                 android:clickable="false"
                 android:ems="10"
                 android:hint="Chọn ngày"
                 android:inputType="textPersonName"
+
                 android:text="22/10/2000" />
 
 
             <TextView
                 android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Email"
+                android:layout_height="51dp"
+                android:text="     Email"
                 android:textColor="#151414"
+
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
 
             <EditText
                 android:id="@+id/editEmail"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#ECBBCA"
+                android:layout_width="375dp"
+                android:layout_height="62dp"
+
+
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="-5dp"
+                android:background="#BDEBF1"
                 android:drawableStart="@drawable/ic_baseline_email_24"
                 android:ems="10"
+
                 android:hint="  Nhập Email"
                 android:inputType="none"
                 android:text="phamvanduong@gmail.com"
@@ -111,9 +141,10 @@
 
             <TextView
                 android:id="@+id/txtGioiTinh"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Giới Tính"
+                android:layout_width="411dp"
+                android:layout_height="39dp"
+
+                android:text="     Giới Tính"
                 android:textColor="#222020"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -136,15 +167,14 @@
                     android:id="@+id/radNam"
                     android:layout_width="193dp"
                     android:layout_height="wrap_content"
-                    android:text="  Nam"
-                    android:checked="true"
+                    android:text="     Nam"
                     android:textColor="#1B1919" />
 
                 <RadioButton
                     android:id="@+id/radNu"
                     android:layout_width="198dp"
                     android:layout_height="wrap_content"
-                    android:text="  Nữ"
+                    android:text="     Nữ"
                     android:textColor="#171616" />
 
             </RadioGroup>
@@ -152,12 +182,12 @@
             <TextView
                 android:id="@+id/txtcontent"
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="15dp" />
 
             <TextView
                 android:id="@+id/txtinh"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
                 android:text="TP/Tỉnh"
                 android:textColor="#121111"
                 android:textSize="18sp"
@@ -166,13 +196,14 @@
             <Spinner
                 android:id="@+id/spinnertinh"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                 />
+                android:layout_height="50dp"
+                android:layout_marginLeft="14dp" />
+
 
             <TextView
                 android:id="@+id/txthuyen"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
                 android:text="Huyện/Quận"
                 android:textColor="#131313"
                 android:textSize="18sp"
@@ -182,12 +213,13 @@
                 android:id="@+id/spinnerhuyen"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
-                />
+                android:layout_marginLeft="14dp" />
+
 
             <TextView
                 android:id="@+id/txtxa"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
                 android:text="Xã/Phường"
 
                 android:textColor="#201E1E"
@@ -197,38 +229,20 @@
             <Spinner
                 android:id="@+id/spinnerxa"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-               />
+                android:layout_height="50dp"
+                android:layout_marginLeft="14dp" />
 
             <Button
-                android:id="@+id/update"
+                android:id="@+id/btnsave"
                 android:layout_width="285dp"
                 android:layout_height="62dp"
                 android:background="#E11212"
-                android:text="Cập nhật"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                />
-
-            <Button
-                android:id="@+id/doimatkhau"
-                android:layout_width="285dp"
-                android:layout_height="62dp"
-                android:layout_marginTop="20dp"
-                android:background="#E11212"
-                android:text="Đổi mật khẩu"
+                android:text="Lưu thông tin"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
-
-
         </LinearLayout>
-
 
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

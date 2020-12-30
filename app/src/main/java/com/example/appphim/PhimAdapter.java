@@ -22,7 +22,7 @@ public class PhimAdapter extends RecyclerView.Adapter<com.example.appphim.PhimAd
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.thongtin_phim,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_film_details,parent,false);
         return new UserViewHolder(view);
     }
 

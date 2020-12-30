@@ -7,11 +7,13 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.palette.graphics.Palette;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -22,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivityChitiet extends AppCompatActivity {
+    private ImageView image;
+    private int id;
+
 
     private RatingBar ratingBarYours;
     private TextView textViewAverageAllRating;
@@ -34,6 +39,12 @@ public class MainActivityChitiet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chitiet);
+
+        image= findViewById(R.id.hinhPhim);
+//        Intent intent=this.getIntent();
+//        ArrayList<dangchieu_AT> list = (ArrayList<dangchieu_AT>) intent.getSerializableExtra("list");
+
+
 
         mTablayout=findViewById(R.id.DetailsTablayout);
         mViewPager=findViewById(R.id.Detailsviewpager);
