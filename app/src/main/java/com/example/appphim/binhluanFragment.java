@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.appphim.commentUser;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
