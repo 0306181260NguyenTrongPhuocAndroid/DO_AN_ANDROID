@@ -7,5 +7,6 @@
     <color name="nonselected_tab">#FF1430</color>
     <color name="white">#fff</color>
     <color name="red">#f00</color>
+    <color name="seat_selected">#0097A7</color>
 
 </resources>

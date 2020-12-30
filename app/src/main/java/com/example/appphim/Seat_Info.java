@@ -1,17 +1,17 @@
-package com.example.appphim.dataclass;
+package com.example.appphim;
 
 public class Seat_Info {
     private int SeatId;
-    private int SeatKind;
+    private String SeatName;
     private int SeatStatus;
     private double SeatPrice;
 
     public Seat_Info() {
     }
 
-    public Seat_Info(int seatId, int seatKind, int seatStatus, double seatPrice) {
+    public Seat_Info(int seatId, String seatName, int seatStatus, double seatPrice) {
         SeatId = seatId;
-        SeatKind = seatKind;
+        SeatName = seatName;
         SeatStatus = seatStatus;
         SeatPrice = seatPrice;
     }
@@ -20,8 +20,8 @@ public class Seat_Info {
         return SeatId;
     }
 
-    public int getSeatKind() {
-        return SeatKind;
+    public String getSeatName() {
+        return SeatName;
     }
 
     public int getSeatStatus() {
@@ -36,8 +36,8 @@ public class Seat_Info {
         SeatId = seatId;
     }
 
-    public void setSeatKind(int seatKind) {
-        SeatKind = seatKind;
+    public void setSeatName(String seatName) {
+        SeatName = seatName;
     }
 
     public void setSeatStatus(int seatStatus) {
