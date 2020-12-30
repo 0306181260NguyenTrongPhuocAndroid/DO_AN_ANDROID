@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme">
                  
-        <activity android:name=".Activity_Chonghe">
+        <activity android:name=".Activity_ChonGhe">
 
         </activity>
 
@@ -24,14 +24,18 @@
         <activity android:name=".MainActivityThanhToan">
 
         </activity>
-        <activity android:name=".MainActivityChitiet" />
-        <activity android:name=".MainCaNhan" />
-        <activity android:name=".MainTrangDK_DN">
+        <activity android:name=".MainActivityChitiet" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainCaNhan" >
+
+        </activity>
+        <activity android:name=".MainTrangDK_DN">
+
         </activity>
 
         <activity
