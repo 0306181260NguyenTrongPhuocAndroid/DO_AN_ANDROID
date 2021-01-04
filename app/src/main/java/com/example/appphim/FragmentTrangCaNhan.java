@@ -2,11 +2,13 @@ package com.example.appphim;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -71,9 +73,23 @@ public class FragmentTrangCaNhan extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+   /* private  void GetData(String url)
+    {
+        RequestQueue requestQueue=Volley.newRequestQueue(getActivity());
+        JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                       // Toast.makeText(getActivity(),response.toString(),Toast.);
+
+                    }
+                });
+    }*/
     EditText editDate;
     EditText editHoten;
     EditText editSDT;
+    EditText editEmail;
+    Button btnupdate1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -94,7 +110,7 @@ public class FragmentTrangCaNhan extends Fragment {
         adapterhuyen.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinnerhuyen.setAdapter(adapterhuyen);
         String [] valuexa =
-                {"TPHCM","Long An","Tien Giang","Binh Phuoc","Binh Duong","4-8 years","8-15 years","Over 15 years",};
+                {"TPHCM","Long An","Tien Giang","Binh Phuoc","Binh Duong","Phước Đông","Cần Đước","Phước Tuy",};
         Spinner spinnerxa = (Spinner) v.findViewById(R.id.spinnerxa);
         ArrayAdapter<String> adapterxa = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, valuexa);
         adapterxa.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -104,14 +120,26 @@ public class FragmentTrangCaNhan extends Fragment {
 
         editSDT=(EditText)v.findViewById(R.id.editSDT);
         editDate=(EditText) v.findViewById(R.id.editNgaySinh);
+        btnupdate1=(Button)v.findViewById(R.id.update);
+        editEmail=(EditText)v.findViewById(R.id.editEmail);
         editDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chonngay();
-
-
             }
         });
+        btnupdate1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(), EditProfile.class);
+                intent.putExtra("HoTen",editHoten.getText().toString());
+                intent.putExtra("Email",editEmail.getText().toString());
+                intent.putExtra("SDT",editSDT.getText().toString());
+                intent.putExtra("NgaySinh",editDate.getText().toString());
+                startActivity(intent);
+            }
+        });
+
         InputStream is=getActivity().getResources().openRawResource(R.raw.thongtin);
         BufferedReader br=new BufferedReader(new InputStreamReader(is));
         StringBuilder sb= new StringBuilder();
@@ -186,4 +214,5 @@ public class FragmentTrangCaNhan extends Fragment {
 
 
     }
+
 }

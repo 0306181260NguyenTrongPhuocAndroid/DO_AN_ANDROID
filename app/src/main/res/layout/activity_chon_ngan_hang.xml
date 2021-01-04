@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChonNganHangActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vui lòng chọn ngân hàng để thanh toán"
+        android:gravity="center"
+        android:textSize="11pt"
+        android:textColor="@color/black"
+        />
+
+
+    <ScrollView
+        android:id="@+id/KhungChonNganHang"
+        android:layout_width="match_parent"
+        android:layout_height="454dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginTop="100dp"
+
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="177dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="false"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+                <RadioButton
+                    android:id="@+id/rad_SCB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="SCB"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_Agribank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Agribank"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_Viettinbank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Viettinbank"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_ACB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="ACB"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_Vietcombank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Vietcombank"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_BIDV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="BIDV"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_Oceanbank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Ocean Bank"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_TPBank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="TPBank"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rad_SHB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="SHB"></RadioButton>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/mgs"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/design_default_color_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnXacNhan"
+                android:layout_width="375dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:width="10dp"
+                android:padding="10dp"
+                android:text="Xác nhận"
+                app:backgroundTint="#ad2b33" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
