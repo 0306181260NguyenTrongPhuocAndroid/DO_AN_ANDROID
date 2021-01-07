@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +21,9 @@ import android.widget.TextView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivityChitiet extends AppCompatActivity {
@@ -55,6 +58,8 @@ public class MainActivityChitiet extends AppCompatActivity {
 
         mTablayout.setupWithViewPager(mViewPager);
 
+        //mViewPager.beginFakeDrag();
+
 
         this.ratingBarYours = (RatingBar) this.findViewById(R.id.ratingBar_yours);
         this.textViewAverageAllRating= (TextView) this.findViewById(R.id.Diem);
@@ -75,9 +80,12 @@ public class MainActivityChitiet extends AppCompatActivity {
 
     }
 
-    public void ChonSuat(View view) {
+    public void SuatClick(View view) {
+        Intent in = new Intent(this,Activity_Chonghe.class);
 
+        startActivity(in);
     }
+
     /*private void initToobar(){
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

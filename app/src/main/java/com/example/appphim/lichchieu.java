@@ -3,11 +3,16 @@ package com.example.appphim;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.LinkedList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,6 +67,39 @@ public class lichchieu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         lview=inflater.inflate(R.layout.fragment_lichchieu, container, false);
+
+        rcvLichchieu =lview.findViewById(R.id.rcvLichChieu);
+
+        LinearLayoutManager linearLayout=new LinearLayoutManager(getActivity());
+        rcvLichchieu.setLayoutManager(linearLayout);
+
+        LichchieuAdapter mlca = new LichchieuAdapter();
+        mlca.context=getActivity();
+        mlca.setDataLichChieu(createData());
+        rcvLichchieu.setAdapter(mlca);
+
         return lview;
+    }
+
+    public LinkedList<ThongTinLichChieu> createData(){
+        LinkedList<ThongTinLichChieu> LC = new LinkedList<ThongTinLichChieu>();
+
+        for (int i = 0; i<4;i++)
+        {
+            ThongTinLichChieu l = new ThongTinLichChieu();
+            l.setCinemaName("Lê Quý Đôn");
+            l.setFilmName("HARRY PORTER");
+            //l.setNgayChieu(new Date(2021,1,4));
+            l.setRoomId("1");
+            LinkedList<SuatChieu> sc = new LinkedList<SuatChieu>();
+            for (int j = 0;j<i+3;j++)
+            {
+                SuatChieu s = new SuatChieu(j+1,new Date(2021,1,4),(j+1)*2,1);
+                sc.add(s);
+            }
+            l.setDsSuatChieu(sc);
+            LC.add(l);
+        }
+        return LC;
     }
 }

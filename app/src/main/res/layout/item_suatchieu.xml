@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_suatchieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:onClick="SuatClick"
+        android:textSize="@dimen/time_textsize"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/bgColor_btn_suatchieu"
+        android:padding="0px"/>
+</LinearLayout>

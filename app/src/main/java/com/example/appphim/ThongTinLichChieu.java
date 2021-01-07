@@ -1,28 +1,33 @@
 package com.example.appphim;
 
 import java.sql.Date;
-import java.sql.Time;
+import java.util.LinkedList;
 
 public class ThongTinLichChieu {
     private String CinemaName;
+    private String filmName;
     private String RoomId;
     private Date ngayChieu;
-    private Time suatChieu;
-    private String filmName;
-
-    public ThongTinLichChieu(String cinemaName, String roomId, Date ngayChieu, Time suatChieu, String filmName) {
-        CinemaName = cinemaName;
-        RoomId = roomId;
-        this.ngayChieu = ngayChieu;
-        this.suatChieu = suatChieu;
-        this.filmName = filmName;
-    }
+    private LinkedList<SuatChieu> dsSuatChieu;
 
     public ThongTinLichChieu() {
     }
 
+    public ThongTinLichChieu(String cinemaName, String filmName, String roomId, Date ngayChieu, LinkedList<SuatChieu> dsSuatChieu) {
+        CinemaName = cinemaName;
+        this.filmName = filmName;
+        RoomId = roomId;
+        this.ngayChieu = ngayChieu;
+        this.dsSuatChieu = dsSuatChieu;
+    }
+
+    //Lấy dữ liệu
     public String getCinemaName() {
         return CinemaName;
+    }
+
+    public String getFilmName() {
+        return filmName;
     }
 
     public String getRoomId() {
@@ -33,16 +38,17 @@ public class ThongTinLichChieu {
         return ngayChieu;
     }
 
-    public Time getSuatChieu() {
-        return suatChieu;
+    public LinkedList<SuatChieu> getDsSuatChieu() {
+        return dsSuatChieu;
     }
 
-    public String getFilmName() {
-        return filmName;
-    }
-
+    //Gán dữ liệu
     public void setCinemaName(String cinemaName) {
         CinemaName = cinemaName;
+    }
+
+    public void setFilmName(String filmName) {
+        this.filmName = filmName;
     }
 
     public void setRoomId(String roomId) {
@@ -53,11 +59,7 @@ public class ThongTinLichChieu {
         this.ngayChieu = ngayChieu;
     }
 
-    public void setSuatChieu(Time suatChieu) {
-        this.suatChieu = suatChieu;
-    }
-
-    public void setFilmName(String filmName) {
-        this.filmName = filmName;
+    public void setDsSuatChieu(LinkedList<SuatChieu> dsSuatChieu) {
+        this.dsSuatChieu = dsSuatChieu;
     }
 }

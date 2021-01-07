@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 
 import com.example.appphim.chitiet_phim;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -79,6 +81,7 @@ public class thongtinFragment extends Fragment {
         userAdapter.setData(getListUser());
 
         rcvUser.setAdapter(userAdapter);
+
         return mView;
 //        return inflater.inflate(R.layout.fragment_thongtin, container, false);
     }
@@ -103,4 +106,5 @@ public class thongtinFragment extends Fragment {
 
         return list;
     }
+
 }
