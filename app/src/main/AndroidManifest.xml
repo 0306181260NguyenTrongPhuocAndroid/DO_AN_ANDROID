@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
                  
-        <activity android:name=".Activity_Chonghe">
+        <activity android:name=".Activity_ChonGhe">
 
         </activity>
 
@@ -25,21 +25,25 @@
 
         </activity>
         <activity android:name=".MainActivityChitiet" >
+
+
+        </activity>
+        <activity android:name=".MainCaNhan" >
+
+        </activity>
+        <activity android:name=".MainTrangDK_DN">
+
+
+        </activity>
+       
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".MainCaNhan" />
-        <activity android:name=".MainTrangDK_DN">
-
-        </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
 
     </application>

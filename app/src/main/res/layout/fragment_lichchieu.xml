@@ -9,6 +9,7 @@
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         >
         <LinearLayout
@@ -49,7 +50,6 @@
                 android:layout_width="@dimen/btn_day_widthsize"
                 android:layout_height="wrap_content"
                 android:text="@string/dayofweek2" />
-
 
         </LinearLayout>
 
