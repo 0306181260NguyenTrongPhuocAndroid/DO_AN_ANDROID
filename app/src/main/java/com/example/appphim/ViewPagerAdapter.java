@@ -20,11 +20,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
              case 0:
                  return new FilmDetails();
              case 1:
-                 return new thongtinFragment();
+                 return new lichchieu();
              case 2:
                  return new binhluanFragment();
 
-             default: return new lichchieu();
+             default: return new thongtinFragment();
          }
      }
 
