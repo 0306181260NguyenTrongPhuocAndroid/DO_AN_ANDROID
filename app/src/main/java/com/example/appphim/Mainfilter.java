@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Filter;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -72,8 +73,7 @@ public class Mainfilter extends AppCompatActivity {
 
 
         });
-
+       
     }
-
 
 }

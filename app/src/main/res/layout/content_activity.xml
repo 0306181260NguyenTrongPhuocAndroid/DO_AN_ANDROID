@@ -95,17 +95,16 @@
 
             </LinearLayout>
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerImageSlider"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_phim"
                 android:layout_width="match_parent"
                 android:layout_height="540dp"
                 android:background="#353535"
-                android:paddingStart="78dp"
-                android:paddingEnd="78dp"
-                android:onClick="chitietphim"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 >
 
-            </androidx.viewpager2.widget.ViewPager2>
+            </androidx.recyclerview.widget.RecyclerView>
 
 
             <FrameLayout

@@ -50,11 +50,11 @@ public int getItemCount() {
         }
 
 public class PhimHolder extends RecyclerView.ViewHolder {
-    public TextView txttheloai;
     public TextView txttenphim;
     public TextView txtnoidungphim;
     public TextView diemphim;
-    public ImageView hinhanh;
+    public ImageView hinhanh; public TextView txttheloai;
+
     public PhimHolder(@NonNull View itemView) {
         super(itemView);
         txttenphim = (TextView) itemView.findViewById(R.id.name);
