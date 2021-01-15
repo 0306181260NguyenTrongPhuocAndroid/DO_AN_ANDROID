@@ -23,7 +23,8 @@
     <RelativeLayout
         android:paddingLeft="10dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:paddingStart="10dp">
 
         <TextView
             android:id="@+id/name"
@@ -40,18 +41,19 @@
             android:textStyle="bold"></TextView>
 
         <TextView
-            android:id="@+id/đotuoi"
+            android:id="@+id/ndphim"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_below="@id/theloai"
             android:textStyle="bold"></TextView>
-
         <TextView
-            android:id="@+id/diem"
+            android:id="@+id/diemphim"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_below="@id/đotuoi"
+            android:layout_below="@id/ndphim"
             android:textStyle="bold"></TextView>
+
+
     </RelativeLayout>
 
 

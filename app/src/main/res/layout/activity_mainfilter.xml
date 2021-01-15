@@ -11,10 +11,10 @@
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="71dp"
-        android:onClick="Search" />
+        />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
+        android:id="@+id/rv_users"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFEFE">

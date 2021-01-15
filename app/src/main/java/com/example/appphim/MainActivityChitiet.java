@@ -81,7 +81,7 @@ public class MainActivityChitiet extends AppCompatActivity {
     }
 
     public void SuatClick(View view) {
-        Intent in = new Intent(this,Activity_Chonghe.class);
+        Intent in = new Intent(this,Activity_ChonGhe.class);
 
         startActivity(in);
     }
