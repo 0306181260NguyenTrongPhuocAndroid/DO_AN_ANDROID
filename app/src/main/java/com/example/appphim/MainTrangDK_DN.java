@@ -132,7 +132,6 @@ public class MainTrangDK_DN extends AppCompatActivity {
 
 
             if(hoTen.getText().toString().equals(NULL)){
-                //Toast.makeText(getApplicationContext(),"Họ tên kh đc bỏ trống",Toast.LENGTH_LONG).show();
                 hoTen.setHint("Họ tên không bỏ trống");
                 hoTen.setHintTextColor(getResources().getColor(R.color.nonselected_tab));
             }
@@ -174,7 +173,7 @@ public class MainTrangDK_DN extends AppCompatActivity {
             }
         }
         else{
-            Toast.makeText(getApplicationContext(),"Ok",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Đăng ký thành công",Toast.LENGTH_LONG).show();
         }
 
     }
