@@ -28,7 +28,7 @@
                     android:layout_width="118dp"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/a5" />
+                    android:src="@drawable/matbet" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

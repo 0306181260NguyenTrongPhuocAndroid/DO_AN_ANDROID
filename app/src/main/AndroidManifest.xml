@@ -16,9 +16,15 @@
 
         </activity>
 
-        <activity android:name=".EditProfile" />
-        <activity android:name=".DangNhapSTKNganHangActivity" />
-        <activity android:name=".ChonNganHangActivity" />
+        <activity android:name=".EditProfile" >
+
+        </activity>
+        <activity android:name=".DangNhapSTKNganHangActivity" >
+
+        </activity>
+        <activity android:name=".ChonNganHangActivity" >
+
+        </activity>
         <activity android:name=".Mainfilter">
 
         </activity>

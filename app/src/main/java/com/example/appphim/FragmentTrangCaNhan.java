@@ -90,6 +90,7 @@ public class FragmentTrangCaNhan extends Fragment {
     EditText editSDT;
     EditText editEmail;
     Button btnupdate1;
+    Button doimatkhau1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -136,6 +137,14 @@ public class FragmentTrangCaNhan extends Fragment {
                 intent.putExtra("Email",editEmail.getText().toString());
                 intent.putExtra("SDT",editSDT.getText().toString());
                 intent.putExtra("NgaySinh",editDate.getText().toString());
+                startActivity(intent);
+            }
+        });
+      doimatkhau1=v.findViewById(R.id.updatemk);
+        doimatkhau1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(),DoiMatKhau.class);
                 startActivity(intent);
             }
         });

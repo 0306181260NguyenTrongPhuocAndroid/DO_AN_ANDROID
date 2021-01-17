@@ -45,7 +45,7 @@ public class Mainfilter extends AppCompatActivity {
 
         // Tạo request lên server.
         Request request = new Request.Builder()
-                .url("http://192.168.0.121:8000/apiphim")
+                .url("http://172.20.10.5:8000/apiphim")
                 .build();
 
         // Thực thi request.
@@ -73,7 +73,7 @@ public class Mainfilter extends AppCompatActivity {
 
 
         });
-       
+
     }
 
 }

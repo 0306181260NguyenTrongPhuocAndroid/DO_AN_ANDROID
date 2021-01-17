@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
        final JsonAdapter<List<dangchieu_AT>> jsonAdapter= moshi.adapter(phim);
        final Request request=new Request.Builder()
-               .url("http://192.168.0.121:8000/apiphim")
+               .url("http://172.20.10.5:8000/apiphim")
                .build();
 
        client.newCall(request).enqueue(new Callback() {

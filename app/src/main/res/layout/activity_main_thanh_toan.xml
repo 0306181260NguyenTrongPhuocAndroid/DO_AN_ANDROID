@@ -14,7 +14,7 @@
         android:layout_height="275dp"
         android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/poster_phim" />
+        app:srcCompat="@drawable/matbet" />
 
     <ScrollView
         android:id="@+id/KhungThongTinPhimThanhToan"
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="TIỆC TRĂNG MÁU"
+                android:text="Mắt Biếc"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Seat: D4,D5"
+                android:text="Seat: D4"
                 android:textSize="15sp" />
 
             <TextView
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Tổng cộng: 150000"
+                android:text="Tổng cộng: 50000"
                 android:textColor="#EC0A0A"
                 android:textSize="20sp" />
 
