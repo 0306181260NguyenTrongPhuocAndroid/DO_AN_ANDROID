@@ -96,10 +96,33 @@ public class FilmDetails extends Fragment {
         }
     }
 
+    private TextView tenphim;
+    private TextView diem;
+    private TextView dotuoi;
+    private TextView theloai;
+    private TextView mota;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_film_details, container, false);
+        View mview=inflater.inflate(R.layout.fragment_film_details, container, false);
+        MainActivityChitiet mac =(MainActivityChitiet) getActivity();
+        chitiet_phim f = mac.phim;
+        tenphim = mview.findViewById(R.id.tenPhim);
+        diem = mview.findViewById(R.id.Diem);
+        dotuoi = mview.findViewById(R.id.doTuoi);
+        theloai=mview.findViewById(R.id.theLoai);
+        mota =mview.findViewById(R.id.mota);
+        setData(f);
+        return mview;
+    }
+    public void setData(chitiet_phim f){
+        if(f != null) {
+            tenphim.setText("Tên phim: " + f.getTenPhim());
+            diem.setText("" + f.getSoDiem());
+            dotuoi.setText("Độ tuổi yêu cầu: " + f.getDoTuoi());
+            theloai.setText("Thể loại: " + f.getTheLoai());
+            mota.setText("" + f.getMoTa());
+        }
     }
 }

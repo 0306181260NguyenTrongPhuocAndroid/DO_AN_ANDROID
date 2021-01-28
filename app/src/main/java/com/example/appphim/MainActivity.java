@@ -187,9 +187,18 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     }
 
 
-    //public void chitietphim(View view) {
-       //Intent intent= new Intent(this,MainActivityChitiet.class);
-       // startActivity(intent);
+    public void chitietphim(View view) {
+       Intent intent= new Intent(this,MainActivityChitiet.class);
+       Bundle bundle = new Bundle();
+        bundle.putInt("Key_1", 1);
+        bundle.putString("Key_2", "Mắt Biếc");
+        bundle.putString("Key_3", ""+8.2);
+        bundle.putString("Key_4", "13+");
+        bundle.putString("Key_5", "Tình cảm");
+        bundle.putString("Key_6", "Lấy buối cảnh những năm 90 TKXX, nhân vật chính của chúng ta Lan");
+        //bundle.putInt("Key_5", 5);
+        intent.putExtras(bundle);
+       //startActivity(intent);
       //  ImageView imageView=(ImageView)view;
 
         //for(int i = 0; i<dangchieu_ats.size(); i++)
@@ -198,6 +207,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
           //  id= dangchieu_ats.get(i).getResource();
     //   }
       //  intent.putExtra("id",id);
-       //startActivity(intent);
-  // }
+       startActivity(intent);
+  }
 }
