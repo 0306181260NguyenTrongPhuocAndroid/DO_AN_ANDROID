@@ -74,8 +74,7 @@ public class lichchieu extends Fragment {
         rcvLichchieu.setLayoutManager(linearLayout);
 
         LichchieuAdapter mlca = new LichchieuAdapter();
-        mlca.context=getActivity();
-        mlca.setDataLichChieu(createData());
+        mlca.setDataLichChieu(createData(),getActivity());
         rcvLichchieu.setAdapter(mlca);
 
         return lview;
@@ -88,9 +87,8 @@ public class lichchieu extends Fragment {
         {
             ThongTinLichChieu l = new ThongTinLichChieu();
             l.setCinemaName("Lê Quý Đôn");
-            l.setFilmName("HARRY PORTER");
             //l.setNgayChieu(new Date(2021,1,4));
-            l.setRoomId("1");
+            l.setRoomId(1);
             LinkedList<SuatChieu> sc = new LinkedList<SuatChieu>();
             for (int j = 0;j<i+3;j++)
             {

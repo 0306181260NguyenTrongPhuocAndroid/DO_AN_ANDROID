@@ -16,9 +16,10 @@ public class LichchieuAdapter extends RecyclerView.Adapter<LichchieuAdapter.phim
     private LinkedList<ThongTinLichChieu> dsLichChieu;
     public Context context;
 
-    public void setDataLichChieu(LinkedList<ThongTinLichChieu> list)
+    public void setDataLichChieu(LinkedList<ThongTinLichChieu> list,Context context)
     {
         this.dsLichChieu = list;
+        this.context=context;
         notifyDataSetChanged();
     }
     @NonNull

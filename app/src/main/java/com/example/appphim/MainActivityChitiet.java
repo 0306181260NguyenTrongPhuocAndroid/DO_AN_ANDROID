@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.palette.graphics.Palette;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,7 +30,9 @@ import java.util.List;
 public class MainActivityChitiet extends AppCompatActivity {
     private ImageView image;
     private int id;
-
+    public List<ThongTinLichChieu> dsLC;
+    public List<commentUser> dsCmt;
+    public chitiet_phim phim;
 
     private RatingBar ratingBarYours;
     private TextView textViewAverageAllRating;
@@ -44,7 +47,8 @@ public class MainActivityChitiet extends AppCompatActivity {
         setContentView(R.layout.activity_main_chitiet);
 
         image= findViewById(R.id.hinhPhim);
-//        Intent intent=this.getIntent();
+        Intent intent=this.getIntent();
+        phim = getDataFilm(intent);
 //        ArrayList<dangchieu_AT> list = (ArrayList<dangchieu_AT>) intent.getSerializableExtra("list");
 
 
@@ -81,9 +85,27 @@ public class MainActivityChitiet extends AppCompatActivity {
     }
 
     public void SuatClick(View view) {
+
         Intent in = new Intent(this,Activity_ChonGhe.class);
 
         startActivity(in);
+    }
+
+    public chitiet_phim getDataFilm(Intent in)
+    {
+        chitiet_phim f= null;
+        Bundle bundle = in.getExtras();
+        if (bundle != null) {
+            int id = bundle.getInt("Key_1");
+            String ten = bundle.getString("Key_2", "");
+            String diem = bundle.getString("Key_3", "");
+            String dotuoi = bundle.getString("Key_4", "");
+            String theloai = bundle.getString("Key_5", "");
+            String mota = bundle.getString("Key_6", "");
+            //String img = bundle.getString("Key_7", "");
+            f = new chitiet_phim(id,ten,diem,dotuoi,theloai,mota,"");
+        }
+        return f;
     }
 
     /*private void initToobar(){
@@ -106,5 +128,9 @@ public class MainActivityChitiet extends AppCompatActivity {
                 collapsingToolbarLayout.setStatusBarScrimColor(mDarkColer);
             }
         });
+        FragmentClass fragInfo = new FragmentClass();
+fragInfo.setArguments(bundle);
+transaction.replace(R.id.fragment_single, fragInfo);
+transaction.commit();
     }*/
 }

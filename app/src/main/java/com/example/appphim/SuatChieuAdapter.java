@@ -1,9 +1,12 @@
 package com.example.appphim;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,10 +16,18 @@ import java.util.zip.Inflater;
 
 public class SuatChieuAdapter extends RecyclerView.Adapter<SuatChieuAdapter.SuatChieuViewHolder>{
 
+    private int PhongID;
+    private int PhimID;
+    private int Cinema;
+    private Context context;
     private LinkedList<SuatChieu> dsSuat;
 
     public void setDataSuatChieu(LinkedList<SuatChieu> listSuat){
         this.dsSuat = listSuat;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     @NonNull
@@ -40,8 +51,9 @@ public class SuatChieuAdapter extends RecyclerView.Adapter<SuatChieuAdapter.Suat
         return dsSuat.size();
     }
 
-    public class SuatChieuViewHolder extends RecyclerView.ViewHolder {
+    public class SuatChieuViewHolder extends RecyclerView.ViewHolder{
         public Button btnsuatchieu;
+
         public SuatChieuViewHolder(@NonNull View itemView) {
             super(itemView);
             btnsuatchieu = itemView.findViewById(R.id.btn_suatchieu);

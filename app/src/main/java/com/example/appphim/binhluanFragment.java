@@ -86,19 +86,20 @@ public class binhluanFragment extends Fragment {
     }
     private List<commentUser> getComment(){
         List<commentUser> list=new ArrayList<>();
-        list.add(new commentUser(R.drawable.a2,"abs","kjljlkjdajsldasj"));
-        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới"));
-        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng"));
-        list.add(new commentUser(R.drawable.a3,"Vẫn là Trung nhưng khá hình","Như trên"));
-        list.add(new commentUser(R.drawable.a3,"Vẫn là Trung nhưng khá hình","Như trên"));
-        list.add(new commentUser(R.drawable.a3,"Vẫn là Trung nhưng khá hình","Như trên"));
-        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới"));
-        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng"));
-        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới"));
-        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng"));
-        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới"));
-        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng"));list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới"));
-        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng"));
+        list.add(new commentUser(R.drawable.a2,"abs","kjljlkjdajsldasj",1));
+        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới",1));
+        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng",1));
+        list.add(new commentUser(R.drawable.a3,"Vẫn là Trung nhưng khá hình","Như trên",1));
+        list.add(new commentUser(R.drawable.a3,"Vẫn là Trung nhưng khá hình","Như trên",1));
+        list.add(new commentUser(R.drawable.a3,"Vẫn là Trung nhưng khá hình","Như trên",1));
+        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới",1));
+        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng",1));
+        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới",1));
+        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng",1));
+        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới",1));
+        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng",1));
+        list.add(new commentUser(R.drawable.a2,"Trung giấu tên","Như thằng dưới",1));
+        list.add(new commentUser(R.drawable.a4,"Tên như thằng trên","Phim khá quằng",1));
         return list;
     }
 }

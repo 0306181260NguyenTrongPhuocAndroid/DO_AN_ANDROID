@@ -4,11 +4,16 @@ public class commentUser {
     private int userId;
     private String userName;
     private String userComment;
+    private int phimID;
 
-    public commentUser(int userId, String userName, String userComment) {
+    public commentUser() {
+    }
+
+    public commentUser(int userId, String userName, String userComment, int phimID) {
         this.userId = userId;
         this.userName = userName;
         this.userComment = userComment;
+        this.phimID = phimID;
     }
 
     public int getUserId() {
@@ -33,5 +38,13 @@ public class commentUser {
 
     public void setUserComment(String userComment) {
         this.userComment = userComment;
+    }
+
+    public int getPhimID() {
+        return phimID;
+    }
+
+    public void setPhimID(int phimID) {
+        this.phimID = phimID;
     }
 }
