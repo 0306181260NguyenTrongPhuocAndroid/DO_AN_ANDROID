@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -19,6 +20,7 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -31,9 +33,22 @@ import android.widget.ViewFlipper;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
@@ -61,22 +76,23 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         selectSapChieu = findViewById(R.id.btn_sc);
 
 
-        viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
+//        viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
+//
+//        final List<dangchieu_AT> dangchieu_ats = new ArrayList<>();
+//        dangchieu_ats.add(new dangchieu_AT(R.drawable.matbet, "MẮT BIẾC", "Tình Cảm", R.drawable.ic_baseline_star_24, "8.9",1));
+//        dangchieu_ats.add(new dangchieu_AT(R.drawable.rom, "RÒM", "Tâm Lý", R.drawable.ic_baseline_star_24, "7.9",2));
+//        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangmau, "TIỆC TRĂNG MÁU", "Tâm Lý, Tình Cảm, Hài", R.drawable.ic_baseline_star_24, "7.7",3));
+//        dangchieu_ats.add(new dangchieu_AT(R.drawable.venom, "VENOM", "Hành Động, Viễn Tưởng", R.drawable.ic_baseline_star_24, "8.0",4));
+//        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangquynh, "TRẠNG QUỲNH", "Cổ Tích, Hài", R.drawable.ic_baseline_star_24, "8.5",5));
+//
+//        final List<dangchieu_AT> dangchieu_ats2 = new ArrayList<>();
+//        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chimuoiba, "CHỊ MƯỜI BA", "Hài, Hành Động,", R.drawable.ic_baseline_star_24, "8.0",6));
+//        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chongngta, "CHỒNG NGƯỜI TA", "Tâm Lý", R.drawable.ic_baseline_star_24, "6.8",7));
+//        dangchieu_ats2.add(new dangchieu_AT(R.drawable.kesanmo, "KẺ SĂN MỘ", "Hành Động, Phiêu Lưu", R.drawable.ic_baseline_star_24, "7.0",8));
+//        dangchieu_ats2.add(new dangchieu_AT(R.drawable.traitimquaivat, "TRÁI TIM QUÁI VẬT", "Kinh Dị", R.drawable.ic_baseline_star_24, "9.3",9));
+//        dangchieu_ats2.add(new dangchieu_AT(R.drawable.wonderwoman, "WONDER WOMAN", "Hành Động", R.drawable.ic_baseline_star_24, "8.9",10));
 
-        final List<dangchieu_AT> dangchieu_ats = new ArrayList<>();
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.matbet, "MẮT BIẾC", "Tình Cảm", R.drawable.ic_baseline_star_24, "8.9",1));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.rom, "RÒM", "Tâm Lý", R.drawable.ic_baseline_star_24, "7.9",2));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangmau, "TIỆC TRĂNG MÁU", "Tâm Lý, Tình Cảm, Hài", R.drawable.ic_baseline_star_24, "7.7",3));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.venom, "VENOM", "Hành Động, Viễn Tưởng", R.drawable.ic_baseline_star_24, "8.0",4));
-        dangchieu_ats.add(new dangchieu_AT(R.drawable.trangquynh, "TRẠNG QUỲNH", "Cổ Tích, Hài", R.drawable.ic_baseline_star_24, "8.5",5));
-
-        final List<dangchieu_AT> dangchieu_ats2 = new ArrayList<>();
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chimuoiba, "CHỊ MƯỜI BA", "Hài, Hành Động,", R.drawable.ic_baseline_star_24, "8.0",6));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.chongngta, "CHỒNG NGƯỜI TA", "Tâm Lý", R.drawable.ic_baseline_star_24, "6.8",7));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.kesanmo, "KẺ SĂN MỘ", "Hành Động, Phiêu Lưu", R.drawable.ic_baseline_star_24, "7.0",8));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.traitimquaivat, "TRÁI TIM QUÁI VẬT", "Kinh Dị", R.drawable.ic_baseline_star_24, "9.3",9));
-        dangchieu_ats2.add(new dangchieu_AT(R.drawable.wonderwoman, "WONDER WOMAN", "Hành Động", R.drawable.ic_baseline_star_24, "8.9",10));
-
+       // initslider1(dangchieu_ats);
         initslider1(dangchieu_ats);
         btndangchieu = (Button) findViewById(R.id.dangchieu);
         btnsapchieu = (Button) findViewById(R.id.sapchieu);
@@ -85,13 +101,14 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             @Override
             public void onClick(View v) {
                 initslider1(dangchieu_ats);
+
                 select(v);
             }
         });
         btnsapchieu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initslider1(dangchieu_ats2);
+               initslider(dangchieu_ats);
                 select(v);
             }
         });
@@ -124,8 +141,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
     }
 
-
-
     @SuppressLint("ResourceAsColor")
     public void select(View view) {
 
@@ -143,28 +158,72 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
     }
 
-    public void initslider1(List<dangchieu_AT> dangchieus) {
-        viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
-            Adapterdangchieu adapterdangchieu =new Adapterdangchieu(dangchieus, viewPager2);
-            adapterdangchieu.setContext(getApplicationContext());
-        viewPager2.setAdapter(adapterdangchieu);
-        viewPager2.setClipToPadding(false);
-        viewPager2.setClipChildren(false);
-        viewPager2.setOffscreenPageLimit(5);
-        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+   public void initslider1(List<dangchieu_AT> dangchieus) {
+       final RecyclerView rvPhim= (RecyclerView)findViewById(R.id.rv_phim);
+       rvPhim.setLayoutManager(new LinearLayoutManager(this));
 
-        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-        compositePageTransformer.addTransformer(new MarginPageTransformer(50));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
+       OkHttpClient client = new OkHttpClient();
+       Moshi moshi= new Moshi.Builder().build();
+       Type phim = Types.newParameterizedType(List.class,dangchieu_AT.class);
+
+       final JsonAdapter<List<dangchieu_AT>> jsonAdapter= moshi.adapter(phim);
+       final Request request=new Request.Builder()
+               .url("http://10.10.3.174:8000/apiphimdangchieu")
+               .build();
+
+       client.newCall(request).enqueue(new Callback() {
+           @Override
+           public void onFailure(Call call, IOException e) {
+               Log.e("Error","Network Error");
+           }
+
+           @Override
+           public void onResponse(Call call, Response response) throws IOException {
+               String json= response.body().string();
+               final List<dangchieu_AT> dangchieu_ats= jsonAdapter.fromJson(json);
+
+               runOnUiThread(new Runnable() {
+                   @Override
+                   public void run() {
+                       rvPhim.setAdapter(new AdapterTrangChinh(dangchieu_ats,MainActivity.this));
+                   }
+               });
+           }
+       });
+   }
+    public void initslider(List<dangchieu_AT> dangchieus) {
+        final RecyclerView rvPhim= (RecyclerView)findViewById(R.id.rv_phim);
+        rvPhim.setLayoutManager(new LinearLayoutManager(this));
+
+        OkHttpClient client = new OkHttpClient();
+        Moshi moshi= new Moshi.Builder().build();
+        Type phim = Types.newParameterizedType(List.class,dangchieu_AT.class);
+
+        final JsonAdapter<List<dangchieu_AT>> jsonAdapter= moshi.adapter(phim);
+        final Request request=new Request.Builder()
+                .url("http://10.10.3.174:8000/apiphimsapchieu")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.87f + r * 0.15f);
+            public void onFailure(Call call, IOException e) {
+                Log.e("Error","Network Error");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String json= response.body().string();
+                final List<dangchieu_AT> dangchieu_ats= jsonAdapter.fromJson(json);
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvPhim.setAdapter(new AdapterTrangChinh(dangchieu_ats,MainActivity.this));
+                    }
+                });
             }
         });
-        viewPager2.setPageTransformer(compositePageTransformer);
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -185,7 +244,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
         return false;
     }
-
 
     public void chitietphim(View view) {
        Intent intent= new Intent(this,MainActivityChitiet.class);
@@ -209,4 +267,5 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
       //  intent.putExtra("id",id);
        startActivity(intent);
   }
+
 }

@@ -11,10 +11,61 @@
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="71dp"
-        android:onClick="Search" />
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/dsdangchieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF1430"
+            android:text="đang chiếu"
+            android:textColor="#ffffff"
+            android:layout_marginRight="1dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/dssapchieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF1430"
+            android:text="sắp chiếu"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="1dp"></Button>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_dsdc"
+            android:layout_width="wrap_content"
+            android:layout_height="3dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:text=""
+            android:textColor="#ffffff"
+            android:layout_marginRight="1dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_dssc"
+            android:layout_width="wrap_content"
+            android:layout_height="3dp"
+            android:layout_weight="1"
+            android:background="#FF1430"
+            android:text=""
+            android:textColor="#ffffff"
+            android:layout_marginLeft="1dp"></Button>
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
+        android:id="@+id/rv_users"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFEFE">

@@ -23,7 +23,8 @@
     <RelativeLayout
         android:paddingLeft="10dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:paddingStart="10dp">
 
         <TextView
             android:id="@+id/name"
@@ -34,24 +35,36 @@
 
         <TextView
             android:id="@+id/theloai"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="171dp"
+            android:layout_height="38dp"
             android:layout_below="@id/name"
             android:textStyle="bold"></TextView>
 
         <TextView
-            android:id="@+id/đotuoi"
+            android:id="@+id/ndphim"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:layout_below="@id/theloai"
+            android:layout_marginTop="2dp"
             android:textStyle="bold"></TextView>
 
         <TextView
-            android:id="@+id/diem"
+            android:id="@+id/diemphim"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_below="@id/đotuoi"
+            android:layout_below="@id/ndphim"
+            android:layout_marginTop="12dp"
             android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/dotuoi"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Trên 16 tuổi"
+            android:layout_below="@id/diemphim"
+            android:textStyle="bold"></TextView>
+
+
     </RelativeLayout>
 
 

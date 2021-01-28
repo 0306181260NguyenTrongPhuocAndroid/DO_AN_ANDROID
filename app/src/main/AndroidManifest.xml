@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.appphim">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        >
                  
         <activity android:name=".Activity_ChonGhe">
 
         </activity>
 
-        <activity android:name=".EditProfile" />
-        <activity android:name=".DangNhapSTKNganHangActivity" />
-        <activity android:name=".ChonNganHangActivity" />
+        <activity android:name=".EditProfile" >
+
+        </activity>
+        <activity android:name=".DangNhapSTKNganHangActivity" >
+
+        </activity>
+        <activity android:name=".ChonNganHangActivity" >
+
+        </activity>
         <activity android:name=".Mainfilter">
 
         </activity>

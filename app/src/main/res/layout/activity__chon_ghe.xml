@@ -126,7 +126,8 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:backgroundTint="#FF1430"
-            android:textSize="32dp"/>
+            android:textSize="32dp"
+            />
 
     </LinearLayout>
 
