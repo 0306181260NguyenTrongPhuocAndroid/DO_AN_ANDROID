@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         btnsapchieu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               initslider1(dangchieu_ats);
+               initslider(dangchieu_ats);
                 select(v);
             }
         });
@@ -141,8 +141,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
     }
 
-
-
     @SuppressLint("ResourceAsColor")
     public void select(View view) {
 
@@ -170,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
        final JsonAdapter<List<dangchieu_AT>> jsonAdapter= moshi.adapter(phim);
        final Request request=new Request.Builder()
-               .url("http://172.20.10.5:8000/apiphim")
+               .url("http://10.10.3.174:8000/apiphimdangchieu")
                .build();
 
        client.newCall(request).enqueue(new Callback() {
@@ -192,28 +190,40 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                });
            }
        });
-//
-////        viewPager2 = (ViewPager2) findViewById(R.id.viewPagerImageSlider);
-////            Adapterdangchieu adapterdangchieu =new Adapterdangchieu(dangchieus, viewPager2);
-////            adapterdangchieu.setContext(getApplicationContext());
-////        viewPager2.setAdapter(adapterdangchieu);
-////        viewPager2.setClipToPadding(false);
-////        viewPager2.setClipChildren(false);
-////        viewPager2.setOffscreenPageLimit(5);
-////        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-////
-////        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-////        compositePageTransformer.addTransformer(new MarginPageTransformer(50));
-////        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-////            @Override
-////            public void transformPage(@NonNull View page, float position) {
-////                float r = 1 - Math.abs(position);
-////                page.setScaleY(0.87f + r * 0.15f);
-////            }
-////        });
-////        viewPager2.setPageTransformer(compositePageTransformer);
    }
+    public void initslider(List<dangchieu_AT> dangchieus) {
+        final RecyclerView rvPhim= (RecyclerView)findViewById(R.id.rv_phim);
+        rvPhim.setLayoutManager(new LinearLayoutManager(this));
 
+        OkHttpClient client = new OkHttpClient();
+        Moshi moshi= new Moshi.Builder().build();
+        Type phim = Types.newParameterizedType(List.class,dangchieu_AT.class);
+
+        final JsonAdapter<List<dangchieu_AT>> jsonAdapter= moshi.adapter(phim);
+        final Request request=new Request.Builder()
+                .url("http://10.10.3.174:8000/apiphimsapchieu")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("Error","Network Error");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String json= response.body().string();
+                final List<dangchieu_AT> dangchieu_ats= jsonAdapter.fromJson(json);
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvPhim.setAdapter(new AdapterTrangChinh(dangchieu_ats,MainActivity.this));
+                    }
+                });
+            }
+        });
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -235,18 +245,4 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         return false;
     }
 
-
-    //public void chitietphim(View view) {
-       //Intent intent= new Intent(this,MainActivityChitiet.class);
-       // startActivity(intent);
-      //  ImageView imageView=(ImageView)view;
-
-        //for(int i = 0; i<dangchieu_ats.size(); i++)
-      //  {
-         //   if(getDrawable(dangchieu_ats.get(i).get(i).getResource()).getConstantState().equals(imageView.getDrawable().getConstantState()));
-          //  id= dangchieu_ats.get(i).getResource();
-    //   }
-      //  intent.putExtra("id",id);
-       //startActivity(intent);
-  // }
 }
