@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,18 +22,32 @@ import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class MainActivityChitiet extends AppCompatActivity {
     private ImageView image;
     private int id;
-    public List<ThongTinLichChieu> dsLC;
+    public List<LichChieuClass> dsLC;
     public List<commentUser> dsCmt;
     public chitiet_phim phim;
+    public String linkLCApi;
+    public String linkSCApi;
 
     private RatingBar ratingBarYours;
     private TextView textViewAverageAllRating;
@@ -47,13 +62,71 @@ public class MainActivityChitiet extends AppCompatActivity {
         setContentView(R.layout.activity_main_chitiet);
 
         image= findViewById(R.id.hinhPhim);
+        dsLC=new ArrayList<>();
+        //dsSC = new ArrayList<>();
+        linkLCApi="http://192.168.1.9/api/LCapi.json";
+        linkSCApi="http://192.168.1.9/api/SCapi.json";
+        //"https://api.github.com/users"
+
         Intent intent=this.getIntent();
         phim = getDataFilm(intent);
-//        ArrayList<dangchieu_AT> list = (ArrayList<dangchieu_AT>) intent.getSerializableExtra("list");
+
+        // Khởi tạo OkHttpClient để lấy dữ liệu.
+        OkHttpClient client = new OkHttpClient();
+
+        // Khởi tạo Moshi adapter để biến đổi json sang model java (ở đây là ThongTinLichChieu)
+        Moshi moshi = new Moshi.Builder().build();
 
 
+        Type lcphim = Types.newParameterizedType(List.class,LichChieuClass.class);
+        final JsonAdapter<List<LichChieuClass>> jsonAdapter = moshi.adapter(lcphim);
 
-        mTablayout=findViewById(R.id.DetailsTablayout);
+        // Tạo request lên server.
+        Request request = new Request.Builder()
+                .url("http://192.168.1.9/api/LCapi.json")
+                .build();
+        // Thực thi request lấy các rạp chiếu của phim
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("Error", "Network Error or Syntax wrong");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response)
+                    throws IOException {
+                // Lấy thông tin JSON trả về. Bạn có thể log lại biến json này để xem nó như thế nào.
+                String json = response.body().string();
+                final List<LichChieuClass> dslc = jsonAdapter.fromJson(json);
+                // Cho hiển thị lên RecyclerView.
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(dslc.size()>0){
+                            for (LichChieuClass lc : dslc) {
+                                //Tạo thông tin cho Item RecyclerView
+                                LichChieuClass tt = new LichChieuClass();
+                                tt.CinemaID=lc.CinemaID;
+                                tt.CinemaName=lc.CinemaName;
+                                tt.RoomId=lc.RoomId;
+                                tt.phimID=lc.phimID;
+                                tt.gioBatDau=lc.gioBatDau;
+                                tt.ngayChieu=lc.ngayChieu;
+                                tt.suatChieuID=lc.suatChieuID;
+                                tt.trangThai=lc.trangThai;
+
+                                dsLC.add(tt);
+                            }
+                        }
+
+                    }
+                });
+            }
+        });
+
+//      ArrayList<dangchieu_AT> list = (ArrayList<dangchieu_AT>) intent.getSerializableExtra("list");
+
+        mTablayout = findViewById(R.id.DetailsTablayout);
         mViewPager=findViewById(R.id.Detailsviewpager);
 
         mViewpagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -68,6 +141,14 @@ public class MainActivityChitiet extends AppCompatActivity {
         this.ratingBarYours = (RatingBar) this.findViewById(R.id.ratingBar_yours);
         this.textViewAverageAllRating= (TextView) this.findViewById(R.id.Diem);
         //setmTablayout();
+        /*List<ThongTinLichChieu> t = Data();
+
+        Gson gson = new Gson();
+        String strgson = gson.toJson(t);
+        Log.e("String Json",strgson);*/
+
+
+
     }
 
     public void Danhgia(View view) {
@@ -91,6 +172,7 @@ public class MainActivityChitiet extends AppCompatActivity {
         startActivity(in);
     }
 
+
     public chitiet_phim getDataFilm(Intent in)
     {
         chitiet_phim f= null;
@@ -108,7 +190,9 @@ public class MainActivityChitiet extends AppCompatActivity {
         return f;
     }
 
-    /*private void initToobar(){
+    /*
+
+    private void initToobar(){
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if(getSupportActionBar()!=null){
@@ -132,5 +216,73 @@ public class MainActivityChitiet extends AppCompatActivity {
 fragInfo.setArguments(bundle);
 transaction.replace(R.id.fragment_single, fragInfo);
 transaction.commit();
+
+
+for (final ThongTinLichChieu ttlc : dsttlc) {
+            OkHttpClient mclient = new OkHttpClient();
+            Moshi mmoshi = new Moshi.Builder().build();
+            Type msc = Types.newParameterizedType(List.class, SuatChieuClass.class);
+            final JsonAdapter<List<SuatChieuClass>> jsad = mmoshi.adapter(msc);
+            Request mrequest = new Request.Builder()
+                    .url("http://192.168.1.9/api/SCapi.json")
+                    .build();
+
+            // Thực thi request.
+            mclient.newCall(mrequest).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.e("Error", "Network Error or Syntax wrong");
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String js = response.body().string();
+                    final List<SuatChieuClass> dssc = jsad.fromJson(js);
+
+                    // Cho hiển thị lên RecyclerView.
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(dssc.size()>0)
+                            {
+                                List<SuatChieu> sc = new ArrayList<>();
+                                for(SuatChieuClass l : dssc)
+                                {
+                                    SuatChieu msc = new SuatChieu();
+                                    msc.suatChieuID=l.suatChieuID;
+                                    msc.gioBatDau=l.gioBatDau;
+                                    msc.trangThai=l.trangThai;
+                                    sc.add(msc);
+                                }
+                                ttlc.setDsSuatChieu(sc);
+                            }
+                        }
+                    });
+                }
+
+                private void runOnUiThread(Runnable runnable) {
+                }
+            });
+        }
+    }*/
+    /*public List<ThongTinLichChieu> Data(){
+        List<ThongTinLichChieu> LC = new ArrayList<>();
+
+        for (int i = 0; i<4;i++)
+        {
+            ThongTinLichChieu l = new ThongTinLichChieu();
+            l.setCinemaName("Lê Quý Đôn");
+            //l.setNgayChieu(new Date(2021,1,4));
+            l.setRoomId(1);
+            LinkedList<SuatChieu> sc = new LinkedList<SuatChieu>();
+            for (int j = 0;j<i+3;j++)
+            {
+                SuatChieu s = new SuatChieu(j+1,new Date(2021,1,4),(j+1)*2,1);
+                sc.add(s);
+            }
+            l.setDsSuatChieu(sc);
+            LC.add(l);
+        }
+        return LC;
     }*/
 }

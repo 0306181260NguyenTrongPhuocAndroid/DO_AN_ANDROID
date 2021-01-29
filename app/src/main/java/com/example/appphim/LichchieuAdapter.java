@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class LichchieuAdapter extends RecyclerView.Adapter<LichchieuAdapter.phimViewHolder>{
-    private LinkedList<ThongTinLichChieu> dsLichChieu;
+    private List<ThongTinLichChieu> dsLichChieu;
     public Context context;
 
-    public void setDataLichChieu(LinkedList<ThongTinLichChieu> list,Context context)
+    public void setDataLichChieu(List<ThongTinLichChieu> list, Context context)
     {
         this.dsLichChieu = list;
         this.context=context;
