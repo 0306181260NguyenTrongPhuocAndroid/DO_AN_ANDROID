@@ -40,6 +40,7 @@ public class SuatChieuAdapter extends RecyclerView.Adapter<SuatChieuAdapter.Suat
         SuatChieu suat = dsSuat.get(position);
 
         holder.btnsuatchieu.setText(suat.gioBatDau+":00");
+        holder.btnsuatchieu.setTag(suat);
     }
 
     @Override
