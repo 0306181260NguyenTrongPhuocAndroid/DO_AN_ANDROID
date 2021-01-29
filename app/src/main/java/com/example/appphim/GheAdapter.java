@@ -9,11 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class GheAdapter extends RecyclerView.Adapter<GheAdapter.GheViewHolder>{
-    private LinkedList<Seat_Info> dsGhe;
+    private List<Seat_Info> dsGhe;
 
-    public void setDuLieu(LinkedList<Seat_Info> dsg)
+    public void setDuLieu(List<Seat_Info> dsg)
     {
         dsGhe=dsg;
     }
@@ -30,7 +31,7 @@ public class GheAdapter extends RecyclerView.Adapter<GheAdapter.GheViewHolder>{
         if(g == null)
             return;
         holder.IconGhe.setText(""+g.getSeatName());
-        holder.IconGhe.setTag(g.getSeatStatus());
+        holder.IconGhe.setTag(g);
         switch (g.getSeatStatus())
         {
             case 0:{

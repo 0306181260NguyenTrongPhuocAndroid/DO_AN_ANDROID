@@ -1,35 +1,36 @@
 package com.example.appphim;
 
 import java.util.Date;
+import java.util.List;
 
 public class FilmTicket {
-    private Date NgayBan;
+    private int CinemaID;
     private int SuatID;
     private int FilmID;
     private int PhongID;
     private double GiaVe;
-    private int GheID;
+    private List<Integer> mListGheID;
     private int Status;
 
     public FilmTicket() {
     }
 
-    public FilmTicket(Date ngayBan, int suatID, int filmID, int phongID, double giaVe, int gheID, int status) {
-        NgayBan = ngayBan;
+    public FilmTicket(int cinemaID, int suatID, int filmID, int phongID, double giaVe, List<Integer> mListGheID, int status) {
+        CinemaID = cinemaID;
         SuatID = suatID;
         FilmID = filmID;
         PhongID = phongID;
         GiaVe = giaVe;
-        GheID = gheID;
+        this.mListGheID = mListGheID;
         Status = status;
     }
 
-    public Date getNgayBan() {
-        return NgayBan;
+    public int getCinemaID() {
+        return CinemaID;
     }
 
-    public void setNgayBan(Date ngayBan) {
-        NgayBan = ngayBan;
+    public void setCinemaID(int cinemaID) {
+        CinemaID = cinemaID;
     }
 
     public int getSuatID() {
@@ -64,12 +65,12 @@ public class FilmTicket {
         GiaVe = giaVe;
     }
 
-    public int getGheID() {
-        return GheID;
+    public List<Integer> getmListGheID() {
+        return mListGheID;
     }
 
-    public void setGheID(int gheID) {
-        GheID = gheID;
+    public void setmListGheID(List<Integer> mListGheID) {
+        this.mListGheID = mListGheID;
     }
 
     public int getStatus() {

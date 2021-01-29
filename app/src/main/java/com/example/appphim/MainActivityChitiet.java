@@ -167,8 +167,16 @@ public class MainActivityChitiet extends AppCompatActivity {
 
     public void SuatClick(View view) {
 
+        Button btn = (Button)view;
+        SuatChieu s = (SuatChieu) btn.getTag();
         Intent in = new Intent(this,Activity_ChonGhe.class);
-
+        Bundle bundle = new Bundle();
+        bundle.putInt("idphim", phim.getId());
+        //bundle.putInt("idphim", 1);
+        bundle.putInt("idphong", s.RoomId);
+        bundle.putInt("idRap", s.CinemaID);
+        bundle.putInt("idSuat", s.suatChieuID);
+        in.putExtras(bundle);
         startActivity(in);
     }
 

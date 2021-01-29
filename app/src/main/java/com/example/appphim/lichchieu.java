@@ -92,18 +92,18 @@ public class lichchieu extends Fragment {
         rcvLichchieu.setLayoutManager(linearLayout);
 
         LichchieuAdapter mlca = new LichchieuAdapter();
-        //mlca.setDataLichChieu(createData(),context);
+        mlca.setDataLichChieu(createData(),context);
         //List<ThongTinLichChieu> dsttlc = ((MainActivityChitiet) context).dsLC;
-        List<LichChieuClass> dsttsc = ((MainActivityChitiet) context).dsLC;
-        List<ThongTinLichChieu> dsttlc = convertToLC(dsttsc);
+        //List<LichChieuClass> dsttsc = ((MainActivityChitiet) context).dsLC;
+        //List<ThongTinLichChieu> dsttlc = convertToLC(dsttsc);
 
-        mlca.setDataLichChieu(dsttlc, context);
+        //mlca.setDataLichChieu(dsttlc, context);
         rcvLichchieu.setAdapter(mlca);
 
         return lview;
     }
 
-    /*public List<ThongTinLichChieu> createData(){
+    public List<ThongTinLichChieu> createData(){
         List<ThongTinLichChieu> LC = new ArrayList<>();
 
         for (int i = 0; i<4;i++)
@@ -111,18 +111,22 @@ public class lichchieu extends Fragment {
             ThongTinLichChieu l = new ThongTinLichChieu();
             l.setCinemaName("Lê Quý Đôn");
             //l.setNgayChieu(new Date(2021,1,4));
-            l.setRoomId(1);
             List<SuatChieu> sc = new ArrayList<>();
             for (int j = 0;j<i+3;j++)
             {
-                SuatChieu s = new SuatChieu(j+1,new Date(2021,1,4),(j+1)*2,1);
+                SuatChieu s = new SuatChieu();
+                s.CinemaID=i+1;
+                s.RoomId=j+1;
+                s.suatChieuID=j+1;
+                s.gioBatDau=(j+1)*2;
+                s.trangThai=1;
                 sc.add(s);
             }
             l.setDsSuatChieu(sc);
             LC.add(l);
         }
         return LC;
-    }*/
+    }
     public List<ThongTinLichChieu> convertToLC(List<LichChieuClass> l)
     {
         List<ThongTinLichChieu> newList= null;

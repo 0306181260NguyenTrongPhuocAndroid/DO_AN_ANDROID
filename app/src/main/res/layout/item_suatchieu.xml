@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="@dimen/time_textsize"
+        android:onClick="SuatClick"
         android:textColor="@color/white"
         android:backgroundTint="@color/bgColor_btn_suatchieu"
         android:padding="0px"/>
