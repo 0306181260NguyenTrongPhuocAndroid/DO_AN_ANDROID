@@ -1,18 +1,35 @@
 package com.example.appphim;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,22 +83,28 @@ public class lichchieu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        lview=inflater.inflate(R.layout.fragment_lichchieu, container, false);
+        lview = inflater.inflate(R.layout.fragment_lichchieu, container, false);
 
-        rcvLichchieu =lview.findViewById(R.id.rcvLichChieu);
+        Context context = getActivity();
+        rcvLichchieu = lview.findViewById(R.id.rcvLichChieu);
 
-        LinearLayoutManager linearLayout=new LinearLayoutManager(getActivity());
+        LinearLayoutManager linearLayout = new LinearLayoutManager(context);
         rcvLichchieu.setLayoutManager(linearLayout);
 
         LichchieuAdapter mlca = new LichchieuAdapter();
-        mlca.setDataLichChieu(createData(),getActivity());
+        //mlca.setDataLichChieu(createData(),context);
+        //List<ThongTinLichChieu> dsttlc = ((MainActivityChitiet) context).dsLC;
+        List<LichChieuClass> dsttsc = ((MainActivityChitiet) context).dsLC;
+        List<ThongTinLichChieu> dsttlc = convertToLC(dsttsc);
+
+        mlca.setDataLichChieu(dsttlc, context);
         rcvLichchieu.setAdapter(mlca);
 
         return lview;
     }
 
-    public LinkedList<ThongTinLichChieu> createData(){
-        LinkedList<ThongTinLichChieu> LC = new LinkedList<ThongTinLichChieu>();
+    /*public List<ThongTinLichChieu> createData(){
+        List<ThongTinLichChieu> LC = new ArrayList<>();
 
         for (int i = 0; i<4;i++)
         {
@@ -89,7 +112,7 @@ public class lichchieu extends Fragment {
             l.setCinemaName("Lê Quý Đôn");
             //l.setNgayChieu(new Date(2021,1,4));
             l.setRoomId(1);
-            LinkedList<SuatChieu> sc = new LinkedList<SuatChieu>();
+            List<SuatChieu> sc = new ArrayList<>();
             for (int j = 0;j<i+3;j++)
             {
                 SuatChieu s = new SuatChieu(j+1,new Date(2021,1,4),(j+1)*2,1);
@@ -99,5 +122,59 @@ public class lichchieu extends Fragment {
             LC.add(l);
         }
         return LC;
+    }*/
+    public List<ThongTinLichChieu> convertToLC(List<LichChieuClass> l)
+    {
+        List<ThongTinLichChieu> newList= null;
+
+        if(l!=null)
+        {
+            newList=getChiNhanh(l);
+            for (ThongTinLichChieu tt : newList)
+            {
+                for (LichChieuClass lc : l)
+                {
+                    List<SuatChieu> s = new ArrayList<>();
+                    if(lc.CinemaID==tt.getCinemaID())
+                    {
+                        SuatChieu sc = new SuatChieu();
+                        sc.CinemaID=lc.CinemaID;
+                        sc.RoomId=lc.RoomId;
+                        sc.suatChieuID=lc.suatChieuID;
+                        sc.gioBatDau=lc.gioBatDau;
+                        sc.trangThai=lc.trangThai;
+                        s.add(sc);
+
+                    }
+                    tt.setDsSuatChieu(s);
+                }
+            }
+
+        }
+        return newList;
+    }
+    public List<ThongTinLichChieu> getChiNhanh(List<LichChieuClass> l){
+        List<ThongTinLichChieu> newList= new ArrayList<>();
+        for (LichChieuClass lc : l)
+        {
+            ThongTinLichChieu t = new ThongTinLichChieu();
+            if(newList.size()==0)
+            {
+                t.setCinemaID(lc.CinemaID);
+                t.setCinemaName(lc.CinemaName);
+                newList.add(t);
+            }
+            else {
+                for(ThongTinLichChieu ttlc : newList)
+                {
+                    if(lc.CinemaID==ttlc.getCinemaID())
+                        break;
+                    t.setCinemaID(lc.CinemaID);
+                    t.setCinemaName(lc.CinemaName);
+                    newList.add(t);
+                }
+            }
+        }
+        return newList;
     }
 }

@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 
 import java.util.LinkedList;
 
-public class Activity_ChonGhe extends AppCompatActivity {
+class Activity_ChonGhe extends AppCompatActivity {
 
     private static LinkedList<Seat_Info> dsGHE;
     private RecyclerView rcvDsghe;

@@ -12,17 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.zip.Inflater;
 
 public class SuatChieuAdapter extends RecyclerView.Adapter<SuatChieuAdapter.SuatChieuViewHolder>{
 
-    private int PhongID;
-    private int PhimID;
-    private int Cinema;
     private Context context;
-    private LinkedList<SuatChieu> dsSuat;
+    private List<SuatChieu> dsSuat;
 
-    public void setDataSuatChieu(LinkedList<SuatChieu> listSuat){
+    public void setDataSuatChieu(List<SuatChieu> listSuat){
         this.dsSuat = listSuat;
     }
 
