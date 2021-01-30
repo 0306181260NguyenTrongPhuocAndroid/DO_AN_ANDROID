@@ -1,37 +1,26 @@
 package com.example.appphim;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.palette.graphics.Palette;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
-import com.google.gson.Gson;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -41,6 +30,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivityChitiet extends AppCompatActivity {
+
     private ImageView image;
     private int id;
     public List<LichChieuClass> dsLC;
@@ -169,7 +159,7 @@ public class MainActivityChitiet extends AppCompatActivity {
 
         Button btn = (Button)view;
         SuatChieu s = (SuatChieu) btn.getTag();
-        Intent in = new Intent(this,Activity_ChonGhe.class);
+        Intent in = new Intent(this, Activity_Chonghe.class);
         Bundle bundle = new Bundle();
         bundle.putInt("idphim", phim.getId());
         //bundle.putInt("idphim", 1);

@@ -27,7 +27,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class Activity_ChonGhe extends AppCompatActivity {
+public class Activity_Chonghe extends AppCompatActivity {
 
     private static List<Seat_Info> dsGHE;
     private RecyclerView rcvDsghe;
