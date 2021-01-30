@@ -7,14 +7,14 @@ public class SuatChieu {
     public int CinemaID;
     public int RoomId;
     public int suatChieuID;
-    public Date ngayChieu;
+    public String ngayChieu;
     public int gioBatDau;
     public int trangThai;
 
     public SuatChieu() {
     }
 
-    public SuatChieu(int cinemaID, int roomId, int suatChieuID, Date ngayChieu, int gioBatDau, int trangThai) {
+    public SuatChieu(int cinemaID, int roomId, int suatChieuID, String ngayChieu, int gioBatDau, int trangThai) {
         CinemaID = cinemaID;
         RoomId = roomId;
         this.suatChieuID = suatChieuID;
