@@ -79,6 +79,7 @@ public class lichchieu extends Fragment {
     }
     private RecyclerView rcvLichchieu;
     private View lview;
+    private List<ThongTinLichChieu> ds= new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,12 +93,12 @@ public class lichchieu extends Fragment {
         rcvLichchieu.setLayoutManager(linearLayout);
 
         LichchieuAdapter mlca = new LichchieuAdapter();
-        mlca.setDataLichChieu(createData(),context);
+        //mlca.setDataLichChieu(createData(),context);
         //List<ThongTinLichChieu> dsttlc = ((MainActivityChitiet) context).dsLC;
-        //List<LichChieuClass> dsttsc = ((MainActivityChitiet) context).dsLC;
-        //List<ThongTinLichChieu> dsttlc = convertToLC(dsttsc);
+        List<LichChieuClass> dsttsc = ((MainActivityChitiet) context).dsLC;
+        convertToLC(dsttsc);
 
-        //mlca.setDataLichChieu(dsttlc, context);
+        mlca.setDataLichChieu(ds, context);
         rcvLichchieu.setAdapter(mlca);
 
         return lview;
@@ -127,18 +128,42 @@ public class lichchieu extends Fragment {
         }
         return LC;
     }
-    public List<ThongTinLichChieu> convertToLC(List<LichChieuClass> l)
-    {
-        List<ThongTinLichChieu> newList= null;
 
-        if(l!=null)
+    public void setDSRap(List<LichChieuClass> dsLC)
+    {
+        if(dsLC!=null)
         {
-            newList=getChiNhanh(l);
-            for (ThongTinLichChieu tt : newList)
+            ThongTinLichChieu t = new ThongTinLichChieu();
+            LichChieuClass c = dsLC.get(0);
+            t.setCinemaID(c.CinemaID);
+            t.setCinemaName(c.CinemaName);
+            ds.add(t);
+            for (LichChieuClass l : dsLC)
             {
+                boolean f = true;
+                for (ThongTinLichChieu i : ds)
+                {
+                    if(l.CinemaID==i.getCinemaID())
+                    {
+                        f=false;break;
+                    }
+                }
+                if(f)
+                    ds.add(new ThongTinLichChieu(l.CinemaID,l.CinemaName));
+            }
+        }
+    }
+    public void convertToLC(List<LichChieuClass> l)
+    {
+
+        setDSRap(l);
+        if(l!=null&&ds!=null)
+        {
+            for (ThongTinLichChieu tt : ds)
+            {
+                List<SuatChieu> s = new ArrayList<>();
                 for (LichChieuClass lc : l)
                 {
-                    List<SuatChieu> s = new ArrayList<>();
                     if(lc.CinemaID==tt.getCinemaID())
                     {
                         SuatChieu sc = new SuatChieu();
@@ -146,39 +171,14 @@ public class lichchieu extends Fragment {
                         sc.RoomId=lc.RoomId;
                         sc.suatChieuID=lc.suatChieuID;
                         sc.gioBatDau=lc.gioBatDau;
+                        sc.ngayChieu=lc.ngayChieu;
                         sc.trangThai=lc.trangThai;
                         s.add(sc);
-
                     }
-                    tt.setDsSuatChieu(s);
                 }
+                tt.setDsSuatChieu(s);
             }
 
         }
-        return newList;
-    }
-    public List<ThongTinLichChieu> getChiNhanh(List<LichChieuClass> l){
-        List<ThongTinLichChieu> newList= new ArrayList<>();
-        for (LichChieuClass lc : l)
-        {
-            ThongTinLichChieu t = new ThongTinLichChieu();
-            if(newList.size()==0)
-            {
-                t.setCinemaID(lc.CinemaID);
-                t.setCinemaName(lc.CinemaName);
-                newList.add(t);
-            }
-            else {
-                for(ThongTinLichChieu ttlc : newList)
-                {
-                    if(lc.CinemaID==ttlc.getCinemaID())
-                        break;
-                    t.setCinemaID(lc.CinemaID);
-                    t.setCinemaName(lc.CinemaName);
-                    newList.add(t);
-                }
-            }
-        }
-        return newList;
     }
 }

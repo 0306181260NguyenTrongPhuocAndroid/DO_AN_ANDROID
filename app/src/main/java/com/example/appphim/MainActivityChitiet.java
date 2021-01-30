@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.moshi.JsonAdapter;
@@ -33,8 +34,9 @@ public class MainActivityChitiet extends AppCompatActivity {
 
     private ImageView image;
     private int id;
-    public List<LichChieuClass> dsLC;
-    public List<commentUser> dsCmt;
+    public List<LichChieuClass> dsLC=new ArrayList<>();
+    public List<ThongTinLichChieu> dsRap= new ArrayList<>();
+    public List<commentUser> dsCmt=new ArrayList<>();
     public chitiet_phim phim;
     public String linkLCApi;
     public String linkSCApi;
@@ -52,21 +54,20 @@ public class MainActivityChitiet extends AppCompatActivity {
         setContentView(R.layout.activity_main_chitiet);
 
         image= findViewById(R.id.hinhPhim);
-        dsLC=new ArrayList<>();
+
         //dsSC = new ArrayList<>();
         linkLCApi="http://192.168.1.9/api/LCapi.json";
         linkSCApi="http://192.168.1.9/api/SCapi.json";
-        //"https://api.github.com/users"
 
-        Intent intent=this.getIntent();
-        phim = getDataFilm(intent);
+        //Intent intent=this.getIntent();
+        //phim = getDataFilm(intent);
+        phim=new chitiet_phim(1,"Mắt Biếc","8.0","16+","Tình Cảm","Nhan...","");
 
         // Khởi tạo OkHttpClient để lấy dữ liệu.
         OkHttpClient client = new OkHttpClient();
 
         // Khởi tạo Moshi adapter để biến đổi json sang model java (ở đây là ThongTinLichChieu)
         Moshi moshi = new Moshi.Builder().build();
-
 
         Type lcphim = Types.newParameterizedType(List.class,LichChieuClass.class);
         final JsonAdapter<List<LichChieuClass>> jsonAdapter = moshi.adapter(lcphim);
@@ -86,34 +87,23 @@ public class MainActivityChitiet extends AppCompatActivity {
             public void onResponse(Call call, Response response)
                     throws IOException {
                 // Lấy thông tin JSON trả về. Bạn có thể log lại biến json này để xem nó như thế nào.
-                String json = response.body().string();
-                final List<LichChieuClass> dslc = jsonAdapter.fromJson(json);
+                final String json = response.body().string();
+
+                try {
+                    final List<LichChieuClass> ds = jsonAdapter.fromJson(json);
+                    dsLC=ds;
+                }
+                catch (IOException e){
+                    Log.e("err","ERR");
+                }
                 // Cho hiển thị lên RecyclerView.
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(dslc.size()>0){
-                            for (LichChieuClass lc : dslc) {
-                                //Tạo thông tin cho Item RecyclerView
-                                LichChieuClass tt = new LichChieuClass();
-                                tt.CinemaID=lc.CinemaID;
-                                tt.CinemaName=lc.CinemaName;
-                                tt.RoomId=lc.RoomId;
-                                tt.phimID=lc.phimID;
-                                tt.gioBatDau=lc.gioBatDau;
-                                tt.ngayChieu=lc.ngayChieu;
-                                tt.suatChieuID=lc.suatChieuID;
-                                tt.trangThai=lc.trangThai;
-
-                                dsLC.add(tt);
-                            }
-                        }
-
                     }
                 });
             }
         });
-
 //      ArrayList<dangchieu_AT> list = (ArrayList<dangchieu_AT>) intent.getSerializableExtra("list");
 
         mTablayout = findViewById(R.id.DetailsTablayout);
@@ -166,6 +156,7 @@ public class MainActivityChitiet extends AppCompatActivity {
         bundle.putInt("idphong", s.RoomId);
         bundle.putInt("idRap", s.CinemaID);
         bundle.putInt("idSuat", s.suatChieuID);
+        bundle.putString("ngaychieu",s.ngayChieu);
         in.putExtras(bundle);
         startActivity(in);
     }

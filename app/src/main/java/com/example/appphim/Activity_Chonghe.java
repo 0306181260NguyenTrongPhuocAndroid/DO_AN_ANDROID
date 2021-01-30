@@ -29,11 +29,12 @@ import okhttp3.Response;
 
 public class Activity_Chonghe extends AppCompatActivity {
 
-    private static List<Seat_Info> dsGHE;
+    public List<Seat_Info> dsGHE;
     private RecyclerView rcvDsghe;
     private FilmTicket ve;
-    private List<Integer> gheID;
-    public List<gheClass>  mghe;
+    private List<Integer> gheID=new ArrayList<>();
+    public List<gheClass>  mghe= new ArrayList<>();
+    public String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +43,9 @@ public class Activity_Chonghe extends AppCompatActivity {
         rcvDsghe=findViewById(R.id.dsGHE);
         Intent intent = this.getIntent();
 
-        ve=setTTPhim(intent);
-        gheID=new ArrayList<>();
-        mghe=new ArrayList<>();
+        //ve=setTTPhim(intent);
+        ve = new FilmTicket(1,1,1,1,0,gheID,1);
+
         // Khởi tạo OkHttpClient để lấy dữ liệu.
         OkHttpClient client = new OkHttpClient();
 
@@ -69,19 +70,26 @@ public class Activity_Chonghe extends AppCompatActivity {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String json = response.body().string();
-                    final List<gheClass> dsg = jsonAdapter.fromJson(json);
+                    try {
+                        final List<gheClass> dsg = jsonAdapter.fromJson(json);
+                        mghe=dsg;
+                    }
+                    catch (IOException e)
+                    {
+                        Log.e("Err","Loading error");
+                    }
+
                     // Cho hiển thị lên RecyclerView.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mghe=dsg;
+
                         }
                     });
                 }
             });
         rcvDsghe.setLayoutManager(new GridLayoutManager(this, 7));
         TaoDSGHE();
-
         GheAdapter ga = new GheAdapter();
         ga.setDuLieu(dsGHE);
         rcvDsghe.setAdapter(ga);
@@ -128,6 +136,7 @@ public class Activity_Chonghe extends AppCompatActivity {
             int idPhong = bundle.getInt("idphong", 0);
             int idChiNhanh = bundle.getInt("idRap", 0);
             int idSuat = bundle.getInt("idSuat", 0);
+            date=bundle.getString("ngaychieu");
 
             fl=new FilmTicket(idChiNhanh,idSuat,idFilm,idPhong,0,gheID,1);
         }
@@ -157,12 +166,8 @@ public class Activity_Chonghe extends AppCompatActivity {
         for (int i=0;i<28;i++){
             Seat_Info g = new Seat_Info();
             g.setSeatId(i+1);
-            g.setSeatStatus(0);
-            for (gheClass ghe : mghe)
-            {
-                if(g.getSeatId()==ghe.gheid)
-                    g.setSeatStatus(2);
-            }
+            g.setSeatStatus(setStatus(i+1));
+
             g.setSeatPrice(50000.0);
             if(i<7){
                 g.setSeatName("A"+(i%7+1)); dsGHE.add(g);
@@ -177,6 +182,14 @@ public class Activity_Chonghe extends AppCompatActivity {
             g.setSeatName("D"+(i%7+1));
             dsGHE.add(g);
         }
-
+    }
+    public int setStatus(int gheID)
+    {
+        for (gheClass ghe : mghe)
+        {
+            if(gheID==ghe.gheid)
+                return 2;
+        }
+        return 0;
     }
 }

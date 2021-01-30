@@ -7,12 +7,18 @@ import java.util.List;
 public class ThongTinLichChieu {
     private int CinemaID;
     private String CinemaName;
-    private Date ngayChieu;
+    private String ngayChieu;
     private List<SuatChieu> dsSuatChieu;
 
     public ThongTinLichChieu() {
     }
 
+    public ThongTinLichChieu(int cinemaID, String cinemaName) {
+        CinemaID = cinemaID;
+        CinemaName = cinemaName;
+        ngayChieu=null;
+        dsSuatChieu =null;
+    }
     //Lấy dữ liệu
 
     public int getCinemaID() {
@@ -31,11 +37,11 @@ public class ThongTinLichChieu {
         CinemaName = cinemaName;
     }
 
-    public Date getNgayChieu() {
+    public String getNgayChieu() {
         return ngayChieu;
     }
 
-    public void setNgayChieu(Date ngayChieu) {
+    public void setNgayChieu(String ngayChieu) {
         this.ngayChieu = ngayChieu;
     }
 
